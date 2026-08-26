@@ -28,8 +28,10 @@ nav:
       - Settings: usage/settings.md
       - Driving Model: usage/driving-model.md
       - Galaxy: usage/galaxy.md
-  - Troubleshooting & FAQ: faq.md
-
+  - Troubleshooting & FAQ:
+      - Ticket System: 
+      - FAQ: faq.md
+    
 theme:
   name: material
   custom_dir: overrides
