@@ -8,7 +8,7 @@ The Discord ticket system is how almost every problem gets resolved. Your car me
 
 You must first be a member in the [Discord Server](https://discord.com/invite/b8EzGp5RtE). 
 
-When Firestar pushes a potential fix for the reason of your ticket, they get sent to the Dom branch, if you're on the StarPilot branch you will need to swap branches to receive the update. 
+When Firestar pushes a potential fix for the reason of your ticket, they get sent to the Dom branch, if you're on the StarPilot branch you will need to [swap branches](https://github.com/L4M3573R/StarPilotDocs/blob/main/docs/ticketsystem.md#wait-wait-wait-how-do-i-swap-from-starpilot-to-dom) to receive the update. 
 
 ## How do I create a ticket?
 
