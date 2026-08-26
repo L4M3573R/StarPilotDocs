@@ -40,7 +40,7 @@ Through Galaxy:
 4. Find "branch switching" and change it to Dom
 5. Then at the bottom of the page click the button that says "Switch + Update"
 
-> [!Tip]
+> [!Important]
 > Your Comma must be in "offroad" mode to switch branches, this is done on your device.
 
 > [!Tip]
