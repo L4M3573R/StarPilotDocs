@@ -26,8 +26,21 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
    <summary>
       Feedback 
    </summary>
-   
+   Use this if you need your Comma to be tuned with your car, maybe the steering isn't enough, have some wobble in the steering wheel, generally stuff that isn't urgent. 
 </details>
+<details>
+   <summary>
+      Bug Report
+   </summary>
+   This is generally for more important matters or when things aren't acting as they should. These get handled first. 
+</details>
+<details>
+   <summary>
+      View My Reports
+   </summary>
+   This button will show you the list and status of all the reports you've made. 
+</details>
+
 
 4. Get your [route information and upload logs](./faq.md#how-do-i-upload-logs-for-troubleshooting)) and put the information into the form and click submit. When describing your feature or problem, it's best to be as descriptive as possible. 
 
