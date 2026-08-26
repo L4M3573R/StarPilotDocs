@@ -20,10 +20,15 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
 > Descriptions and how to use these buttons are below. 
 4. Get your [route information and upload logs]() and put it into the form and click submit. 
 
-## How do I upload logs?
+## Wait wait wait, how do I swap from StarPilot to Dom?? 
 
-See [the FAQ](./faq.md#how-do-i-upload-logs-for-troubleshooting).
+It's super easy to change the branch you're on, this can be done 2 different ways(and you don't need to re-install!).
 
-## What happens after I submit a report?
+Through the Comma:
+1. Go to the device settings
+2. Go to Software
+3. Change the branch option here to Dom
 
-A developer may ask you to test a fix on a different branch
+Through Galaxy:
+1. Login to your Galaxy dashboard
+2. Go to 
