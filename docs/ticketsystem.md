@@ -22,7 +22,7 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
 
 ## Wait wait wait, how do I swap from StarPilot to Dom?? 
 
-It's super easy to change the branch you're on, this can be done 2 different ways(and you don't need to re-install!).
+It's super easy to change the branch you're on, this can be done 2 different ways(and you don't need to re-install like other forks force you to!).
 
 Through the Comma:
 1. Go to the device settings
