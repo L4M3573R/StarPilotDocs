@@ -13,7 +13,7 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
 ## How do I create a ticket?
 
 1. Open the StarPilot Discord.
-2. Go to the [#submit-feedbaxk-and-reports](https://discord.com/channels/1387432184121393333/1506463404863389806) channel.
+2. Go to the [#submit-feedback-and-reports](https://discord.com/channels/1387432184121393333/1506463404863389806) channel.
 3. Click on one of the buttons
    <img src="./assets/images/ticket_buttons.jpg" alt="Ticket Buttons" width="300">
 > [!Tip]
