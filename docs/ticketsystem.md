@@ -2,7 +2,7 @@
 
 ## What is it?
 
-The Discord ticket system is how almost every problem gets resolved. Your car meets comma requirements but it's not supported yet on Star Pilot? Create a ticket. Are you getting ping ponging or steering wobble? Create a ticket. Or really for any reason beyond basic configuration related reasons. Firestar will get around to your ticket at his earliest convenience and push an update to remedy the issue. 
+The Discord ticket system is how almost every problem gets resolved. Your car meets Comma requirements but it's not supported yet on Star Pilot? Create a ticket. Are you getting ping ponging or steering wobble? Create a ticket. Or really for any reason beyond basic configuration related reasons. Firestar will get around to your ticket at his earliest convenience and push an update to remedy the issue. 
 
 ## Before creating a ticket!
 
