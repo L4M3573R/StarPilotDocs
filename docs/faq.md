@@ -98,7 +98,8 @@ If the error is still present, go back to step 1. This can take 6 or more tries.
 
 If the error persists, restart the comma device with the car off.
 
-> [!NOTE] Remote Start Issues
+> [!NOTE]
+> Remote Start Issues
 > If you use remote start and the "boot comma with remote start" setting is enabled,
 > to avoid issues, you should cycle the car off and then back on
 > again after you get in. Otherwise, you might get the Controls Mismatch error.
@@ -124,7 +125,8 @@ Be as descriptive as possible.
 Also include the approximate minute(s) in the route it happened.
 
 
-> [!TIP] Ending a route log early
+> [!TIP]
+> Ending a route log early
 > To make it easier to find the error, you can force the log to end early using:
 > Settings > Utilities > Force offroad. This will make sure the error is near the end of
 > the log. 
@@ -157,7 +159,8 @@ This is usually caused by a sticky param, especially when coming from another Fr
 
 If issues persist, reach out in [Discord](https://firestar.link/discord).
 
-> [!IMPORTANT] Do **not** use this if you can access Galaxy!
+> [!IMPORTANT]
+> Do **not** use this if you can access Galaxy!
 > If you can access [Galaxy](./usage/galaxy.md), 
 > open "Backup and Restore" and click "SAVE ME" instead of using this branch.
 > It is faster and safer, the branch is not always up to date with latest AGNOS 
