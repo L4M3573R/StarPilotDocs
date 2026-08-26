@@ -35,4 +35,9 @@ Through Galaxy:
 2. Open the navigation bar
 3. Go to Software
 4. Find "branch switching" and change it to Dom
-5. Then at the bottom of the page click the button that says "Switch + Update" 
+5. Then at the bottom of the page click the button that says "Switch + Update"
+
+> [!Tip]
+> Your Comma must be in "offroad" mode to switch branches, this is done on your device.
+
+
