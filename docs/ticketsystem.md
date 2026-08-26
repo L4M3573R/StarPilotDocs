@@ -40,4 +40,7 @@ Through Galaxy:
 > [!Tip]
 > Your Comma must be in "offroad" mode to switch branches, this is done on your device.
 
+> [!Tip]
+> If you don't want to stay on Dom, wait for the next version of Star Pilot to be released and your fix will be in that release. Do the same process to switch back to the Starpilot branch. 
+
 
