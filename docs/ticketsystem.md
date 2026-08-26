@@ -27,8 +27,12 @@ It's super easy to change the branch you're on, this can be done 2 different way
 Through the Comma:
 1. Go to the device settings
 2. Go to Software
-3. Change the branch option here to Dom
-
+3. Change the "target branch" option to Dom
+4. Proceed on the screen
+   
 Through Galaxy:
 1. Login to your Galaxy dashboard
-2. Go to 
+2. Open the navigation bar
+3. Go to Software
+4. Find "branch switching" and change it to Dom
+5. Then at the bottom of the page click the button that says "Switch + Update" 
