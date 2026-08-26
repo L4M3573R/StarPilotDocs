@@ -30,9 +30,9 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
 </details>
 <details>
    <summary>
-      Bug Report
+      Feature Request
    </summary>
-   This is generally for more important matters or when things aren't acting as they should. These get handled first. 
+   Would you like to see something get added to Star Pilot? Click this button, if you're gonna request it, you're gonna have to be the person who tests it. 
 </details>
 <details>
    <summary>
