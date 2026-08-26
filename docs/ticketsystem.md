@@ -13,9 +13,8 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
 ## How do I create a ticket?
 
 1. Open the StarPilot Discord.
-2. Go to the report channel.
-3. Press the appropriate button.
-4. Describe the issue as clearly as possible.
+2. Go to the [#submit-feedbaxk-and-reports](https://discord.com/channels/1387432184121393333/1506463404863389806) channel.
+3. Click on one of the buttons 
 
 > [!TIP]
 > Include screenshots and logs when possible.
