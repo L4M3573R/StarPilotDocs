@@ -2,82 +2,90 @@
 
 ## What is it?
 
-The Discord ticket system is how almost every problem gets resolved. Your car meets Comma requirements but it's not supported yet on Star Pilot? Create a ticket. Are you getting ping ponging or steering wobble? Create a ticket. Or really for any reason beyond basic configuration related things. Firestar will get around to your ticket at his earliest convenience and push an update to remedy the issue. 
+The Discord ticket system is the main way to report problems and request support for StarPilot. Create a ticket if your car meets Comma's requirements but is not yet supported by StarPilot, if you experience ping-ponging or steering wobble, or if you encounter another issue that requires investigation. For basic configuration questions, ask in the appropriate public support channel instead. Firestar will review your ticket when available and may release an update to address the issue.
 
 ## Before creating a ticket!
 
-You must first be a member in the [Discord Server](https://discord.com/invite/b8EzGp5RtE). 
+You must first be a member of the [StarPilot Discord server](https://discord.com/invite/b8EzGp5RtE).
 
-When Firestar pushes a potential fix for the reason of your ticket, they get sent to the Dom branch, if you're on the StarPilot branch you will need to [swap branches](https://github.com/L4M3573R/StarPilotDocs/blob/main/docs/ticketsystem.md#wait-wait-wait-how-do-i-swap-from-starpilot-to-dom) to receive the update. 
+Potential fixes are first released on the Dom branch. If you are using the Starpilot branch, you will need to [switch to Dom](#how-do-i-switch-from-the-starpilot-branch-to-dom) to test the update.
 
 ## How do I create a ticket?
 
 1. Open the StarPilot Discord.
 2. Go to the [#submit-feedback-and-reports](https://discord.com/channels/1387432184121393333/1506463404863389806) channel.
-3. Click on one of the buttons
-   <img src="./assets/images/ticket_buttons.jpg" alt="Ticket Buttons" width="300">
+3. Select the appropriate report button.
+
+    <img src="../assets/images/ticket_buttons.jpg" alt="Ticket Buttons" width="300">
+
+4. Get your [route information and upload your logs](./faq.md#how-do-i-upload-logs-for-troubleshooting). Add that information to the form, describe the problem or requested feature in as much detail as possible, and select Submit.
+
+### Which button should I choose?
+
 <details>
    <summary>
       Bug Report
    </summary>
-   Use the Bug Report button when somethings just not acting right. Like if a button on your steering wheel isn't working when it used to or other wonky things that seem off. 
+   Use Bug Report when something is not working correctly. For example, use it if a steering-wheel button no longer works as expected.
 </details>
+
 <details>
    <summary>
-      Feedback 
+      Feedback
    </summary>
-   Use this if you need your Comma to be tuned with your car, maybe the steering isn't enough, have some wobble in the steering wheel, generally stuff that isn't urgent. 
+   Use Feedback for non-urgent tuning concerns, such as insufficient steering performance or steering wobble.
 </details>
+
 <details>
    <summary>
       Feature Request
    </summary>
-   Would you like to see something get added to Star Pilot? Click this button, if you're gonna request it, you're gonna have to be the person who tests it. 
+   Use Feature Request to suggest a new StarPilot feature. If you request a feature, be prepared to test it.
 </details>
+
 <details>
    <summary>
       View My Reports
    </summary>
-   This button will show you the list and status of all the reports you've made. 
+   Use View My Reports to see a list of your reports and their current status.
 </details>
 
-
-4. Get your [route information and upload logs](./faq.md#how-do-i-upload-logs-for-troubleshooting)) and put the information into the form and click submit. When describing your feature or problem, it's best to be as descriptive as possible. 
-
 > [!Tip]
-> If you're able to reproduce the reason for your ticket, it's best to make 1 bookmark on your device before the issue occurs and 1 shortly after, include the bookmarks information in the ticket so it's easier for Firestar to hone in and fix it. 
+> If you can reproduce the issue, open a bookmark on your device shortly before it occurs and close the bookmark shortly afterward. Include the bookmark information in your ticket to help Firestar locate and investigate the issue.
 
-## Wait wait wait, how do I swap from StarPilot to Dom?? 
+## How do I switch from the Starpilot branch to Dom?
 
-It's super easy to change the branch you're on, this can be done 2 different ways(and you don't need to re-install like other forks force you to!).
+You can switch branches through your Comma device or the Galaxy dashboard. You do not need to reinstall StarPilot.
 
-Through the Comma:
-1. Go to the device settings
-2. Go to Software
-3. Change the "target branch" option to Dom
-4. Proceed on the screen
-   
-Through Galaxy:
-1. Login to your Galaxy dashboard
-2. Open the navigation bar
-3. Go to Software
-4. Find "branch switching" and change it to Dom
-5. Then at the bottom of the page click the button that says "Switch + Update"
+### Through your Comma device
+
+1. Open the device settings.
+2. Go to Software.
+3. Change Target Branch to Dom.
+4. Follow the on-screen instructions.
+
+### Through Galaxy
+
+1. Log in to your Galaxy dashboard.
+2. Open the navigation bar.
+3. Go to Software.
+4. Find Branch Switching and change the branch to Dom.
+5. At the bottom of the page, select Switch + Update.
 
 > [!Important]
-> Your Comma must be in "offroad" mode to switch branches, this is done on your device.
+> Your vehicle must be parked and your Comma device must be in offroad mode before you can switch branches.
 
 > [!Tip]
-> If you don't want to stay on Dom, wait for the next version of Star Pilot to be released and your fix will be in that version. Do the same process to switch back to the Starpilot branch. 
+> If you do not want to remain on Dom, wait until the fix is included in the next StarPilot release. You can then follow the same process to switch back to the Starpilot branch.
 
-## What does the colored circles mean on my ticket? 
+## What do the colored circles on my ticket mean?
 
-Each of the colored circles represent the status in which your ticket is in. 
+Each colored circle represents the current status of your ticket.
 
-|Color|Meaning|What you should do|
-|---|---|---|
-|🟠 |Brand new ticket that was submitted. |Wait for Firestar. |
-|🟣|Your ticket has been attended to. |Update Dom, test the update, if not right submit new route and logs. |
-|🔴|You resent the ticket back in for further investigation.|Wait for the Purple circle.|
-|🟢|You closed the ticket out on your own. |Nothing|
-|🔵|A member of staff or the bot closed your ticket.|Nothing.|
+| Color | Meaning | What you should do |
+| --- | --- | --- |
+| 🟠 | Your ticket is new and has been submitted. | Wait for Firestar to review it. |
+| 🟣 | Your ticket has been reviewed and a potential fix is ready. | Update Dom and test the fix. If the problem remains, submit a new route and updated logs. |
+| 🔴 | Your ticket was sent back for further investigation. | Wait for the ticket to return to purple status. |
+| 🟢 | You closed the ticket yourself. | No further action is required. |
+| 🔵 | A staff member or the bot closed your ticket. | No further action is required. |
