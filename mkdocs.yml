@@ -29,7 +29,7 @@ nav:
       - Driving Model: usage/driving-model.md
       - Galaxy: usage/galaxy.md
   - Troubleshooting & FAQ:
-      - Ticket System: 
+      - Ticket System: ticketsystem.md
       - FAQ: faq.md
     
 theme:
