@@ -16,9 +16,9 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
 2. Go to the [#submit-feedbaxk-and-reports](https://discord.com/channels/1387432184121393333/1506463404863389806) channel.
 3. Click on one of the buttons
    <img src="./assets/images/ticket_buttons.jpg" alt="Ticket Buttons" width="300">
-
-> [!TIP]
-> Include screenshots and logs when possible.
+> [!Tip]
+> Descriptions and how to use these buttons are below. 
+4. Get your [route information and upload logs]() and put it into the form and click submit. 
 
 ## How do I upload logs?
 
