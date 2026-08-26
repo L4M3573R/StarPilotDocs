@@ -18,7 +18,7 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
    <img src="./assets/images/ticket_buttons.jpg" alt="Ticket Buttons" width="300">
 > [!Tip]
 > Descriptions and how to use these buttons are below. 
-4. Get your [route information and upload logs]() and put the information into the form and click submit. When describing your feature or problem, it's best to be as descriptive as possible. 
+4. Get your [route information and upload logs](./faq.md#how-do-i-upload-logs-for-troubleshooting)) and put the information into the form and click submit. When describing your feature or problem, it's best to be as descriptive as possible. 
 
 > [!Tip]
 > If you're able to reproduce the reason for your ticket, it's best to make 1 bookmark on your device before the issue occurs and 1 shortly after, include the bookmarks information in the ticket so it's easier for Firestar to hone in and fix it. 
