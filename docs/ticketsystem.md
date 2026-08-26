@@ -6,7 +6,7 @@ The Discord ticket system is how almost every problem gets resolved. Your car me
 
 ## Before creating a ticket!
 
-You must first be in the [Discord Server](https://discord.com/invite/b8EzGp5RtE) then go into the [#submit-feedback-and-reports](https://discord.com/channels/1387432184121393333/1506463404863389806) channel. 
+You must first be in the [Discord Server](https://discord.com/invite/b8EzGp5RtE) then go into the [#submit-feedback-and-reports](https://discord.com/channels/1387432184121393333/1506463404863389806) channel.
 
 When Firestar pushes a potential fix for the reason of your ticket, they get sent to the Dom branch, if you're on the StarPilot branch you will need to swap branches to receive the update. 
 
@@ -14,7 +14,8 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
 
 1. Open the StarPilot Discord.
 2. Go to the [#submit-feedbaxk-and-reports](https://discord.com/channels/1387432184121393333/1506463404863389806) channel.
-3. Click on one of the buttons 
+3. Click on one of the buttons
+   <img src="./assets/images/ticket_buttons.jpg" alt="Ticket Buttons" width="300">
 
 > [!TIP]
 > Include screenshots and logs when possible.
