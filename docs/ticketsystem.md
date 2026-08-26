@@ -21,7 +21,7 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
 4. Get your [route information and upload logs]() and put it into the form and click submit.
 
 > [!Tip]
-> If you're able to reproduce your error, it's best to make 1 bookmark on your device before the issue occurs and 1 shortly after, include the bookmarks information in the ticket so it's easier for Firestar to hone in on the issue. 
+> If you're able to reproduce the reason for your ticket, it's best to make 1 bookmark on your device before the issue occurs and 1 shortly after, include the bookmarks information in the ticket so it's easier for Firestar to hone in and fix it. 
 
 ## Wait wait wait, how do I swap from StarPilot to Dom?? 
 
