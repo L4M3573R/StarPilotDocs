@@ -18,7 +18,10 @@ When Firestar pushes a potential fix for the reason of your ticket, they get sen
    <img src="./assets/images/ticket_buttons.jpg" alt="Ticket Buttons" width="300">
 > [!Tip]
 > Descriptions and how to use these buttons are below. 
-4. Get your [route information and upload logs]() and put it into the form and click submit. 
+4. Get your [route information and upload logs]() and put it into the form and click submit.
+
+> [!Tip]
+> If you're able to reproduce your error, it's best to make 1 bookmark on your device before the issue occurs and 1 shortly after, include the bookmarks information in the ticket so it's easier for Firestar to hone in on the issue. 
 
 ## Wait wait wait, how do I swap from StarPilot to Dom?? 
 
