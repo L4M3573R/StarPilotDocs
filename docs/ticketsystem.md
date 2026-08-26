@@ -70,5 +70,14 @@ Through Galaxy:
 > [!Tip]
 > If you don't want to stay on Dom, wait for the next version of Star Pilot to be released and your fix will be in that version. Do the same process to switch back to the Starpilot branch. 
 
-## What are each of the buttons for when submitting a ticket? 
+## What does the colored circles mean on my ticket? 
 
+Each of the colored circles represent the status in which your ticket is in. 
+
+|Color|Meaning|What you should do|
+|---|---|---|
+|🟠 |Brand new ticket that was submitted. |Wait for Firestar. |
+|🟣|Your ticket has been attended to. |Update Dom, test the update, if not right submit new route and logs. |
+|🔴|You resent the ticket back in for further investigation.|Wait for the Purple circle.|
+|🟢|You closed the ticket out on your own. |Nothing|
+|🔵|A member of staff or the bot closed your ticket.|Nothing.|
