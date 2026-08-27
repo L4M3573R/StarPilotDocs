@@ -30,6 +30,7 @@ nav:
       - Driving Model: usage/driving-model.md
       - Galaxy: usage/galaxy.md
   - Starpilot Exclusive Features:
+      - Navigation: exclusive/navigation.md
       - Lane Centering: exclusive/lane-centering.md
   - Troubleshooting & FAQ:
       - Ticket System: ticketsystem.md
