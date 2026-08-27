@@ -31,8 +31,8 @@ Make sure you have:
 
 The device should face straight ahead rather than toward the driver. Do not place it far to one side of the windshield unless your vehicle's layout makes centered placement impossible.
 
-> [!WARNING] Keep the cameras clear
-> Do not place the mount over tint strips, stickers, windshield dots, cracks, or areas blocked by the mirror or trim. Check local rules for windshield-mounted equipment before choosing a position.
+> [!TIP] Off-center mounting
+> If your vehicle does not allow the comma device to be mounted on the centerline, use Camera Offset in Galaxy's advanced settings to compensate for its position. Camera Offset virtually shifts the camera perspective used by the driving model so it can align with the center of the car. Positive values bias the model center left and negative values bias it right. Make small adjustments and verify the result after each change. Physical centering is still preferred when possible.
 
 ## Attach the mount
 
