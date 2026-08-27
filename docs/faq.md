@@ -5,7 +5,14 @@ description: Frequently asked questions
 # Frequently Asked Questions
 
 Can't find an answer to your question? Post in 
-[Discord](https://firestar.link/discord)
+[Discord](https://firestar.link/discord) or [submit feedback through the ticket system](./ticketsystem.md).
+
+## How do I submit feedback?
+
+> [!IMPORTANT]
+> StarPilot thrives on the feedback and responsiveness of our community. If you are experiencing an issue, please [open a ticket](./ticketsystem.md) and share what you are seeing. The more people submitting feedback, the better your car (and everyone else's) can drive.
+
+Use the [StarPilot ticket system](./ticketsystem.md) to report bugs, share tuning feedback, request features, or ask for an issue to be investigated. The guide explains which button to choose and what information to include.
 
 ## What is the Galaxy? Can I change settings from my phone?
 
@@ -119,8 +126,8 @@ Once you are happy with the segments selected, proceed to the next step.
 5. Wait for data to be uploaded (you can check the progress using `Files` > `View Upload Queue`)
 6. Click `More info`, then enable `Public access` and 
 copy the Route info using the Copy button: ![Copy button](./assets/images/copy_clipboard.png)
-7. Create a post using the buttons in 
-[the #submit-feedback-and-reports channel of the discord server](https://firestar.link/discord). 
+7. [Create a ticket](./ticketsystem.md) using the buttons in
+[the #submit-feedback-and-reports channel of the Discord server](https://firestar.link/discord).
 Be as descriptive as possible. 
 Also include the approximate minute(s) in the route it happened.
 
