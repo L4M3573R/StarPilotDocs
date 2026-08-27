@@ -31,6 +31,7 @@ nav:
       - Galaxy: usage/galaxy.md
   - Starpilot Exclusive Features:
       - Lane Centering: exclusive/lane-centering.md
+      - Sentry Mode: exclusive/sentry-mode.md
   - Troubleshooting & FAQ:
       - Ticket System: ticketsystem.md
       - FAQ: faq.md
