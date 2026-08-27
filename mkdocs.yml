@@ -11,7 +11,8 @@ nav:
       - Bolt EV: cars/bolt.md
       - Volt & Other ASCM/SDGM Cars: cars/volt.md
   - Openpilot Hardware Info:
-      - Comma 4: hardware/comma.md
+      - Comma Devices: hardware/comma.md
+      - Chestnut (External GPU): hardware/chestnut.md
       - Comma Pedal: hardware/comma-pedal.md
       - GM Harness: hardware/gm-harness.md
       - OBD-C Cable: hardware/obd-c.md
