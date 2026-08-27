@@ -134,6 +134,7 @@ copy the Route info using the Copy button: ![Copy button](./assets/images/copy_c
 [the #submit-feedback-and-reports channel of the Discord server](https://firestar.link/discord).
 Be as descriptive as possible. 
 Also include the approximate minute(s) in the route it happened.
+StarPilot has a somewhat unique but excellent ticketing system that helps users and developers ensure no problem goes unresolved. [Learn how the ticketing system works and what to include in your report](./ticketsystem.md).
 
 
 > [!TIP]
