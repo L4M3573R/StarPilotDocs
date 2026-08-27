@@ -18,7 +18,9 @@ nav:
       - OBD-C Cable: hardware/obd-c.md
       - OBD Harness: hardware/obd-harness.md
   - Hardware Installation:
-      - Comma: install/comma.md
+      - Comma:
+          - Installing your Comma: install/comma.md
+          - Mounting your Comma: install/mounting.md
       - Pedal: install/pedal.md
       - Car Config: install/car.md
   - Software Installation:
