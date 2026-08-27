@@ -17,6 +17,7 @@ This page is a guide; try a few models and search for feedback in the Discord.
 
 ## Current Recommendation(s)
 
+* Regret Driving Framework v4
 * Pop v2
 * SC Driving (South Carolina)
 
