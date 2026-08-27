@@ -11,9 +11,13 @@ Can't find an answer to your question? Post in
 
 [Yes.](./usage/galaxy.md)
 
-## Does StarPilot support Comma 4?
+## Does StarPilot support Comma 3, 3X, and 4?
 
-Yes.
+Yes. StarPilot fully supports all three comma devices, including features that stock openpilot has dropped on older hardware (such as the Comma 3). See the [Comma Devices](./hardware/comma.md) page for details.
+
+## Does StarPilot support Chestnut (external GPU)?
+
+Yes. StarPilot detects Chestnut on Comma 3, 3X, and 4 and unlocks chestnut-class driving models when the hardware is ready. Most users do not need Chestnut — see the [Chestnut page](./hardware/chestnut.md).
 
 ## Why is my car driving terribly?
 
