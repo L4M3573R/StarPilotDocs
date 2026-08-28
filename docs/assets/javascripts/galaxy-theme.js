@@ -2,39 +2,96 @@ const galaxyStorageKey = "starpilot-galaxy-theme";
 
 function setGalaxyTheme(enabled) {
   if (enabled) {
-    document.documentElement.setAttribute("data-galaxy-theme", "true");
-    localStorage.setItem(galaxyStorageKey, "true");
+    document.documentElement.setAttribute(
+      "data-galaxy-theme",
+      "true"
+    );
+
+    localStorage.setItem(
+      galaxyStorageKey,
+      "true"
+    );
   } else {
-    document.documentElement.removeAttribute("data-galaxy-theme");
-    localStorage.removeItem(galaxyStorageKey);
+    document.documentElement.removeAttribute(
+      "data-galaxy-theme"
+    );
+
+    localStorage.removeItem(
+      galaxyStorageKey
+    );
   }
 
-  updateGalaxyButton(enabled);
+  updateThemeButtons();
 }
 
-function updateGalaxyButton(enabled) {
-  const button = document.querySelector("#galaxy-theme-toggle");
+function updateThemeButtons() {
+  const galaxy =
+    document.documentElement.getAttribute(
+      "data-galaxy-theme"
+    ) === "true";
 
-  if (!button) return;
+  const defaultButton =
+    document.querySelector("#theme-default");
 
-  button.setAttribute("aria-label",
-    enabled
-      ? "Disable Galaxy theme"
-      : "Enable Galaxy theme"
+  const galaxyButton =
+    document.querySelector("#theme-galaxy");
+
+  if (defaultButton) {
+    defaultButton.classList.toggle(
+      "active",
+      !galaxy
+    );
+  }
+
+  if (galaxyButton) {
+    galaxyButton.classList.toggle(
+      "active",
+      galaxy
+    );
+  }
+}
+
+function setupThemeButtons() {
+  const defaultButton =
+    document.querySelector("#theme-default");
+
+  const galaxyButton =
+    document.querySelector("#theme-galaxy");
+
+  if (defaultButton) {
+    defaultButton.onclick = () =>
+      setGalaxyTheme(false);
+  }
+
+  if (galaxyButton) {
+    galaxyButton.onclick = () =>
+      setGalaxyTheme(true);
+  }
+
+  updateThemeButtons();
+}
+
+if (
+  localStorage.getItem(
+    galaxyStorageKey
+  ) === "true"
+) {
+  document.documentElement.setAttribute(
+    "data-galaxy-theme",
+    "true"
   );
-
-  button.title =
-    enabled
-      ? "Disable Galaxy theme"
-      : "Enable Galaxy theme";
 }
 
-function toggleGalaxyTheme() {
-  const enabled =
-    document.documentElement.getAttribute("data-galaxy-theme") === "true";
+document.addEventListener(
+  "DOMContentLoaded",
+  setupThemeButtons
+);
 
-  setGalaxyTheme(!enabled);
-}
+if (typeof document$ !== "undefined") {
+  document$.subscribe(() => {
+    setupThemeButtons();
+  });
+}}
 
 
 /*
