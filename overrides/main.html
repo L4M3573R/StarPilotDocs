@@ -14,24 +14,17 @@
   {{ super() }}
 
   <div class="galaxy-theme-menu">
-    <div class="galaxy-theme-menu__label">
+    <label for="theme-selector" class="galaxy-theme-menu__label">
       Theme
-    </div>
+    </label>
 
-    <button
-      id="theme-default"
-      class="galaxy-theme-option"
-      type="button"
+    <select
+      id="theme-selector"
+      class="galaxy-theme-select"
+      aria-label="Select theme"
     >
-      Default
-    </button>
-
-    <button
-      id="theme-galaxy"
-      class="galaxy-theme-option"
-      type="button"
-    >
-      Galaxy
-    </button>
+      <option value="default">Default</option>
+      <option value="galaxy">Galaxy</option>
+    </select>
   </div>
-{% endblock %}
+{% endblock %}{% endblock %}
