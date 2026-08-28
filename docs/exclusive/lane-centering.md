@@ -12,6 +12,10 @@ If they differ, StarPilot applies a small, smooth correction toward the lane cen
 
 If the lane lines become unreliable, the lane width appears abnormal, you're changing lanes, or other required conditions aren't met, StarPilot automatically falls back to the normal E2E path.
 
+## How Can I Tell Which Direction Lane Centering Is Correcting?
+
+When Lane Centering applies a correction, the lane line on the side it is pulling toward turns blue. This provides a visual indication of the direction Lane Centering is guiding the vehicle.
+
 ## How Do I Enable Lane Centering?
 
 Lane Centering is enabled through StarPilot Galaxy.
