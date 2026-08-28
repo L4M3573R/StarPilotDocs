@@ -16,18 +16,8 @@
   </script>
 {% endblock %}
 
-{% block footer %}
-  {{ super() }}
-
-  <div class="site-theme-menu">
-    <div class="site-theme-menu__inner">
-      <label for="theme-selector">Theme</label>
-      <select id="theme-selector" aria-label="Select site theme">
-        <option value="galaxy" selected>Galaxy</option>
-        <option value="material">Material</option>
-      </select>
-    </div>
-  </div>
+{% block site_nav %}
+  {% include "partials/site-theme-nav.html" %}
 {% endblock %}
 
 {% block scripts %}
