@@ -1,5 +1,5 @@
 /* Shared theme selector layout. Theme packages provide only color variables. */
-@media screen {
+@media screen and (min-width: 76.25em) {
   .md-sidebar--primary {
     display: flex;
     flex-direction: column;
@@ -8,6 +8,19 @@
   .md-sidebar--primary > .md-sidebar__scrollwrap {
     flex: 1 1 auto;
     min-height: 0;
+  }
+}
+
+@media screen and (max-width: 76.234375em) {
+  .md-sidebar--primary > .md-sidebar__scrollwrap {
+    bottom: 3.2rem;
+  }
+
+  .md-sidebar--primary > .site-theme-menu {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }
 
