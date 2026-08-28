@@ -1,40 +1,689 @@
 /*
- * StarPilot Galaxy documentation theme
+ * StarPilot Galaxy Documentation Theme
  */
 
 
 /* =========================================================
-   GALAXY BASE
+   GALAXY VARIABLES + MATERIAL OVERRIDES
    ========================================================= */
 
 html[data-galaxy-theme="true"] {
-  --galaxy-bg: #090712;
-  --galaxy-bg-soft: #100c1d;
+  --galaxy-bg: #08060f;
+  --galaxy-bg-soft: #100b1a;
 
-  --galaxy-panel: rgba(20, 15, 35, 0.88);
-  --galaxy-panel-soft: rgba(24, 17, 42, 0.72);
+  --galaxy-panel: rgba(20, 13, 34, 0.90);
+  --galaxy-panel-soft: rgba(25, 16, 43, 0.82);
 
   --galaxy-purple: #a970ff;
   --galaxy-purple-bright: #c399ff;
   --galaxy-purple-dark: #7040b8;
 
   --galaxy-text: #f3efff;
-  --galaxy-muted: #b9afca;
+  --galaxy-muted: #c3b9d1;
 
   --galaxy-border: rgba(169, 112, 255, 0.22);
 
-  /* Override Material theme colors */
+  /*
+   * MkDocs Material colors
+   */
+
   --md-primary-fg-color: #4c237a;
   --md-primary-fg-color--light: #7343a8;
   --md-primary-fg-color--dark: #321554;
 
   --md-accent-fg-color: #b98cff;
-  --md-accent-fg-color--transparent: rgba(185, 140, 255, 0.12);
+  --md-accent-fg-color--transparent:
+    rgba(185, 140, 255, 0.12);
 
   --md-default-bg-color: transparent;
+
+  --md-default-fg-color: #f3efff;
+  --md-default-fg-color--light: #cfc5dc;
+  --md-default-fg-color--lighter: #9e93ad;
 }
 
 
+/* =========================================================
+   PAGE BACKGROUND
+   ========================================================= */
+
+html[data-galaxy-theme="true"] body {
+  background: #08060f;
+
+  color: var(--galaxy-text);
+}
+
+
+html[data-galaxy-theme="true"] .md-container {
+  background: #08060f;
+}
+
+
+/* =========================================================
+   STAR FIELD
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-main {
+  position: relative;
+
+  background-color: #08060f;
+
+  background-image:
+
+    /*
+     * Bright tiny stars
+     */
+    radial-gradient(
+      circle at 15px 25px,
+      rgba(255, 255, 255, 0.92) 1px,
+      transparent 1.5px
+    ),
+
+    /*
+     * Purple-tinted stars
+     */
+    radial-gradient(
+      circle at 55px 75px,
+      rgba(215, 195, 255, 0.68) 1px,
+      transparent 1.5px
+    ),
+
+    /*
+     * Dim stars
+     */
+    radial-gradient(
+      circle at 90px 45px,
+      rgba(255, 255, 255, 0.42) 1.3px,
+      transparent 1.9px
+    ),
+
+    /*
+     * Very faint distant stars
+     */
+    radial-gradient(
+      circle at 130px 120px,
+      rgba(195, 165, 255, 0.30) 1px,
+      transparent 1.5px
+    ),
+
+    /*
+     * Subtle purple space glow
+     */
+    radial-gradient(
+      ellipse at 60% 20%,
+      rgba(117, 57, 180, 0.10),
+      transparent 45%
+    );
+
+  background-size:
+    120px 120px,
+    180px 180px,
+    260px 260px,
+    320px 320px,
+    100% 100%;
+
+  background-position:
+    0 0,
+    40px 70px,
+    100px 25px,
+    150px 90px,
+    center;
+
+  background-attachment: fixed;
+}
+
+
+/*
+ * Make Material's containers transparent
+ * so the stars remain visible.
+ */
+
+html[data-galaxy-theme="true"] .md-main__inner,
+html[data-galaxy-theme="true"] .md-content {
+  background: transparent;
+}
+
+
+/* =========================================================
+   TOP HEADER
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-header {
+  background:
+    linear-gradient(
+      135deg,
+      #211338 0%,
+      #321854 50%,
+      #482374 100%
+    );
+
+  border-bottom:
+    1px solid rgba(185, 140, 255, 0.20);
+
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(120, 60, 190, 0.08);
+}
+
+
+html[data-galaxy-theme="true"] .md-header__title {
+  color: #ffffff;
+}
+
+
+html[data-galaxy-theme="true"] .md-header__button {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TOP TABS
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-tabs {
+  background:
+    linear-gradient(
+      135deg,
+      #211338,
+      #3d1f68
+    );
+
+  border-bottom:
+    1px solid rgba(185, 140, 255, 0.15);
+}
+
+
+html[data-galaxy-theme="true"] .md-tabs__link {
+  color: #d5cae3;
+}
+
+
+html[data-galaxy-theme="true"] .md-tabs__link:hover,
+html[data-galaxy-theme="true"] .md-tabs__link--active {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   DESKTOP SIDEBAR
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-sidebar {
+  background: transparent;
+}
+
+
+html[data-galaxy-theme="true"] .md-sidebar__scrollwrap {
+  background: transparent;
+}
+
+
+html[data-galaxy-theme="true"] .md-nav {
+  background: transparent;
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__link {
+  color: var(--galaxy-muted);
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__link:hover {
+  color: var(--galaxy-purple-bright);
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__link--active {
+  color: var(--galaxy-purple-bright) !important;
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__icon {
+  color: var(--galaxy-purple-bright);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION DRAWER
+   ========================================================= */
+
+@media screen and (max-width: 76.234375em) {
+
+  /*
+   * Entire drawer
+   */
+
+  html[data-galaxy-theme="true"] .md-sidebar--primary {
+    background:
+      linear-gradient(
+        180deg,
+        #120b20 0%,
+        #09060f 100%
+      );
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-sidebar--primary
+  .md-sidebar__scrollwrap {
+    background:
+      linear-gradient(
+        180deg,
+        #120b20 0%,
+        #09060f 100%
+      );
+  }
+
+
+  html[data-galaxy-theme="true"] .md-nav--primary {
+    background:
+      linear-gradient(
+        180deg,
+        #120b20 0%,
+        #09060f 100%
+      );
+  }
+
+
+  /*
+   * Top StarPilot Docs block
+   */
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__title[for="__drawer"] {
+    background:
+      linear-gradient(
+        135deg,
+        #281444 0%,
+        #482374 100%
+      ) !important;
+
+    color: #ffffff !important;
+
+    border-bottom:
+      1px solid rgba(185, 140, 255, 0.20);
+  }
+
+
+  /*
+   * Repo / GitHub section
+   */
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__source {
+    background:
+      linear-gradient(
+        135deg,
+        #1c102e,
+        #321750
+      ) !important;
+
+    color: #ffffff !important;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-source {
+    color: #ffffff;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-source__repository {
+    color: #ffffff;
+  }
+
+
+  /*
+   * Navigation sections
+   */
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav {
+    background:
+      #0d0915;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__item {
+    border-color:
+      rgba(185, 140, 255, 0.10);
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__link {
+    color: #cfc5dc;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__link:hover {
+    color: #dfcaff;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__link--active {
+    color: #b98cff !important;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__icon {
+    color: #b98cff;
+  }
+
+
+  /*
+   * Nested navigation title
+   */
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__title {
+    background:
+      #160d25 !important;
+
+    color:
+      #f3efff !important;
+
+    border-bottom:
+      1px solid rgba(185, 140, 255, 0.12);
+  }
+}
+
+
+/* =========================================================
+   ARTICLE PANEL
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-content__inner {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 16, 43, 0.90),
+      rgba(11, 7, 20, 0.88)
+    );
+
+  border:
+    1px solid var(--galaxy-border);
+
+  border-radius: 16px;
+
+  padding:
+    1.5rem 2rem 2rem;
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(120, 65, 190, 0.07);
+
+  backdrop-filter: blur(5px);
+}
+
+
+/* =========================================================
+   ARTICLE TEXT
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-typeset {
+  color: var(--galaxy-text);
+}
+
+
+html[data-galaxy-theme="true"] .md-typeset h1,
+html[data-galaxy-theme="true"] .md-typeset h2,
+html[data-galaxy-theme="true"] .md-typeset h3,
+html[data-galaxy-theme="true"] .md-typeset h4,
+html[data-galaxy-theme="true"] .md-typeset h5,
+html[data-galaxy-theme="true"] .md-typeset h6 {
+  color: #f8f5ff;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-typeset a {
+  color: var(--galaxy-purple-bright);
+}
+
+
+html[data-galaxy-theme="true"] .md-typeset a:hover {
+  color: #ddc7ff;
+}
+
+
+/* =========================================================
+   CODE
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .highlight,
+html[data-galaxy-theme="true"] .md-typeset code {
+  background-color:
+    rgba(13, 9, 23, 0.90);
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-search__form {
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid rgba(169, 112, 255, 0.18);
+}
+
+
+html[data-galaxy-theme="true"] .md-search__input {
+  color: #ffffff;
+}
+
+
+html[data-galaxy-theme="true"] .md-search__output {
+  background:
+    #100b1a;
+}
+
+
+/* =========================================================
+   ADMONITIONS / DETAILS
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-typeset .admonition,
+html[data-galaxy-theme="true"] .md-typeset details {
+  background:
+    rgba(17, 12, 29, 0.82);
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+html[data-galaxy-theme="true"]
+.md-typeset table:not([class]) {
+  background:
+    rgba(17, 12, 29, 0.78);
+}
+
+
+html[data-galaxy-theme="true"]
+.md-typeset table:not([class]) th {
+  background:
+    rgba(77, 39, 126, 0.55);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-footer {
+  background:
+    #0c0815;
+}
+
+
+html[data-galaxy-theme="true"] .md-footer-meta {
+  background:
+    #08060f;
+}
+
+
+/* =========================================================
+   THEME SELECTOR
+   ========================================================= */
+
+.galaxy-theme-menu {
+  max-width: 61rem;
+
+  margin:
+    0 auto;
+
+  padding:
+    1.2rem 1rem 1.5rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.galaxy-theme-menu__label {
+  font-weight: 600;
+
+  opacity: 0.8;
+}
+
+
+.galaxy-theme-select {
+  min-width: 150px;
+
+  padding:
+    0.55rem 2.2rem 0.55rem 0.8rem;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 8px;
+
+  background:
+    #17131e;
+
+  color:
+    #f3efff;
+
+  font: inherit;
+
+  cursor: pointer;
+}
+
+
+.galaxy-theme-select:hover {
+  border-color:
+    rgba(185, 140, 255, 0.45);
+}
+
+
+.galaxy-theme-select:focus {
+  outline:
+    2px solid rgba(185, 140, 255, 0.55);
+
+  outline-offset:
+    2px;
+}
+
+
+html[data-galaxy-theme="true"]
+.galaxy-theme-select {
+  background:
+    #160d25;
+
+  border-color:
+    rgba(185, 140, 255, 0.45);
+
+  color:
+    #eadcff;
+}
+
+
+/* Dropdown option colors */
+
+.galaxy-theme-select option {
+  background:
+    #17131e;
+
+  color:
+    #f3efff;
+}
+
+
+/* =========================================================
+   MOBILE ARTICLE + THEME SELECTOR
+   ========================================================= */
+
+@media screen and (max-width: 44.984375em) {
+
+  html[data-galaxy-theme="true"]
+  .md-content__inner {
+    margin:
+      1rem 0.6rem;
+
+    padding:
+      1.25rem 1.25rem 2rem;
+
+    border-radius:
+      16px;
+  }
+
+
+  .galaxy-theme-menu {
+    padding:
+      1rem;
+  }
+
+
+  .galaxy-theme-select {
+    min-width:
+      135px;
+  }
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+html[data-galaxy-theme="true"] {
+  scrollbar-color:
+    var(--galaxy-purple-dark)
+    #0c0914;
+}
 /* =========================================================
    MAIN PAGE
    ========================================================= */
