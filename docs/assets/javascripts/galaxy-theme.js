@@ -20,7 +20,6 @@ function applyTheme(theme) {
   updateThemeSelector();
 }
 
-
 function updateThemeSelector() {
   const selector =
     document.getElementById("theme-selector");
@@ -35,6 +34,43 @@ function updateThemeSelector() {
   selector.value =
     galaxyEnabled
       ? "galaxy"
+      : "default";
+}
+
+
+/* Restore saved theme */
+const savedTheme =
+  localStorage.getItem(galaxyStorageKey);
+
+if (savedTheme === "galaxy") {
+  document.documentElement.setAttribute(
+    "data-galaxy-theme",
+    "true"
+  );
+}
+
+
+/* Listen for dropdown changes */
+document.addEventListener("change", (event) => {
+  if (event.target.id === "theme-selector") {
+    applyTheme(event.target.value);
+  }
+});
+
+
+/* Set dropdown correctly on first page load */
+document.addEventListener(
+  "DOMContentLoaded",
+  updateThemeSelector
+);
+
+
+/* MkDocs Material instant-navigation support */
+if (typeof document$ !== "undefined") {
+  document$.subscribe(() => {
+    updateThemeSelector();
+  });
+}      ? "galaxy"
       : "default";
 }
 
