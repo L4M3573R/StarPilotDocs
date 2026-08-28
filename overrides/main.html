@@ -13,18 +13,13 @@
 {% block footer %}
   {{ super() }}
 
-  <div class="galaxy-theme-menu">
-    <label for="theme-selector" class="galaxy-theme-menu__label">
-      Theme
-    </label>
-
-    <select
-      id="theme-selector"
-      class="galaxy-theme-select"
-      aria-label="Select theme"
-    >
-      <option value="default">Default</option>
-      <option value="galaxy">Galaxy</option>
-    </select>
+  <div class="site-theme-menu md-footer-meta">
+    <div class="site-theme-menu__inner md-footer-meta__inner md-grid">
+      <label for="theme-selector">Theme</label>
+      <select id="theme-selector" aria-label="Select site theme">
+        <option value="galaxy" selected>Galaxy</option>
+        <option value="material">Material</option>
+      </select>
+    </div>
   </div>
 {% endblock %}

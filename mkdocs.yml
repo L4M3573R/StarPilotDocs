@@ -33,6 +33,7 @@ nav:
       - Galaxy: usage/galaxy.md
   - Starpilot Exclusive Features:
       - Lane Centering: exclusive/lane-centering.md
+      - Speed Limit Controller: exclusive/speed-limit-controller.md
   - Troubleshooting & FAQ:
       - Ticket System: ticketsystem.md
       - FAQ: faq.md
@@ -112,8 +113,5 @@ extra:
     - icon: fontawesome/brands/discord
       link: https://firestar.link/discord
 
-extra_css:
-  - assets/stylesheets/galaxy.css
-
 extra_javascript:
-  - assets/javascripts/galaxy-theme.js
+  - assets/theme-loader.js

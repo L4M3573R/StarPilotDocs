@@ -78,6 +78,8 @@ Your max speed is shown in the top left of the UI.
 The Speed Limit Controller (SLC) will use map data from [OpenStreetMap (OSM)](https://openstreetmap.org) 
 to limit your max speed based upon speed limit data for your vehicle location.
 
+See the [Speed Limit Controller guide](../exclusive/speed-limit-controller.md) for source, offset, confirmation, fallback, and override settings.
+
 Speed limit for your current location is shown below your max speed. 
 The active +offset shown is how far above the speed limit it will allow.
 Offsets are configurable in settings.
