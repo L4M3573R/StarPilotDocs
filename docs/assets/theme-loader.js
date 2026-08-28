@@ -69,7 +69,7 @@
     script.id = id;
     script.src = themeAsset(theme, "theme.js");
     script.dataset.siteThemeAsset = theme;
-    document.body.appendChild(script);
+    document.head.appendChild(script);
   }
 
   async function activateTheme(requestedTheme, persist = true) {

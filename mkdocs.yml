@@ -112,6 +112,3 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: https://firestar.link/discord
-
-extra_javascript:
-  - assets/theme-loader.js

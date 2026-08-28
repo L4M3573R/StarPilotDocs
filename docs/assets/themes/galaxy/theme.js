@@ -56,7 +56,7 @@
   }
 
   function ensureStarfield() {
-    if (disposed || root.dataset.siteTheme !== THEME || document.getElementById(STARFIELD_ID)) return;
+    if (disposed || !document.body || root.dataset.siteTheme !== THEME || document.getElementById(STARFIELD_ID)) return;
 
     const field = document.createElement("div");
     const stars = document.createDocumentFragment();
@@ -79,6 +79,7 @@
     if (disposed) return;
     disposed = true;
     document.getElementById(STARFIELD_ID)?.remove();
+    document.removeEventListener("DOMContentLoaded", ensureStarfield);
     document.removeEventListener("site-theme:render", handleRender);
     document.removeEventListener("site-theme:unload", cleanup);
   }
@@ -89,5 +90,6 @@
 
   document.addEventListener("site-theme:render", handleRender);
   document.addEventListener("site-theme:unload", cleanup);
+  document.addEventListener("DOMContentLoaded", ensureStarfield, { once: true });
   ensureStarfield();
 })();
