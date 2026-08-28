@@ -1,8 +1,18 @@
 /* Shared theme selector layout. Theme packages provide only color variables. */
+@media screen {
+  .md-sidebar--primary {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .md-sidebar--primary > .md-sidebar__scrollwrap {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+}
+
 .md-sidebar--primary .site-theme-menu {
-  position: sticky;
-  bottom: 0;
-  margin-top: 1rem;
+  flex: 0 0 auto;
   background: var(--site-theme-menu-bg, var(--md-default-bg-color));
   border-top: 1px solid var(--site-theme-menu-border, var(--md-default-fg-color--lightest));
   color: var(--site-theme-menu-fg, var(--md-default-fg-color--light));

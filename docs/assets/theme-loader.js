@@ -57,7 +57,7 @@
 
   function placeThemeSelector() {
     const menu = document.querySelector(".site-theme-menu");
-    const navigation = document.querySelector(".md-sidebar--primary .md-sidebar__inner");
+    const navigation = document.querySelector(".md-sidebar--primary");
     if (menu && navigation && menu.parentElement !== navigation) navigation.appendChild(menu);
   }
 
