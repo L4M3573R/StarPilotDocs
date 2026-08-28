@@ -104,10 +104,11 @@ html[data-site-theme="galaxy"] .md-nav__icon {
     display: block;
     width: calc(100% - 0.8rem);
     aspect-ratio: 16 / 9;
+    box-sizing: border-box;
     margin: 0.4rem 0.4rem 1rem;
     background:
       linear-gradient(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)),
-      url("images/14e923da438d0c50e2fcd42e9eb174e5.png") center / contain no-repeat;
+      url("images/14e923da438d0c50e2fcd42e9eb174e5.png") center / 100% 100% no-repeat;
     border: 1px solid var(--galaxy-border);
     border-radius: 0.6rem;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
@@ -122,12 +123,15 @@ html[data-site-theme="galaxy"] .md-nav__icon {
   }
 
   html[data-site-theme="galaxy"] .md-nav--primary .md-nav__title[for="__drawer"] {
+    width: 100%;
+    height: auto;
     min-height: 0;
     aspect-ratio: 16 / 9;
+    box-sizing: border-box;
     padding: 0;
     background:
       linear-gradient(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)),
-      url("images/14e923da438d0c50e2fcd42e9eb174e5.png") center / contain no-repeat;
+      url("images/14e923da438d0c50e2fcd42e9eb174e5.png") center / 100% 100% no-repeat;
     border-bottom: 1px solid var(--galaxy-border);
     box-shadow: none;
     color: transparent;
