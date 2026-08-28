@@ -253,3 +253,92 @@ html[data-galaxy-theme="true"]
   box-shadow:
     0 0 20px rgba(166,105,255,.25);
 }
+
+/* =========================================================
+   MATERIAL GALAXY OVERRIDES
+   ========================================================= */
+
+html[data-galaxy-theme="true"] {
+  --md-primary-fg-color: #6f42c1;
+  --md-primary-fg-color--light: #9b72e8;
+  --md-primary-fg-color--dark: #4d278f;
+
+  --md-accent-fg-color: #b388ff;
+  --md-accent-fg-color--transparent: rgba(179, 136, 255, 0.1);
+
+  --md-default-bg-color: transparent;
+}
+
+
+/* Purple navbar/header */
+html[data-galaxy-theme="true"] .md-header {
+  background:
+    linear-gradient(
+      135deg,
+      #211338,
+      #3d1f68
+    );
+}
+
+
+/* Dark background underneath everything */
+html[data-galaxy-theme="true"] .md-container {
+  background: #08060f;
+}
+
+
+/* Actual visible starfield */
+html[data-galaxy-theme="true"] .md-main {
+  background-color: #08060f;
+
+  background-image:
+    radial-gradient(
+      circle at 15px 25px,
+      rgba(255,255,255,.9) 1px,
+      transparent 1.4px
+    ),
+    radial-gradient(
+      circle at 55px 75px,
+      rgba(205,180,255,.65) 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 90px 45px,
+      rgba(255,255,255,.45) 1.5px,
+      transparent 2px
+    );
+
+  background-size:
+    120px 120px,
+    180px 180px,
+    260px 260px;
+
+  background-attachment: fixed;
+}
+
+
+/* Make inner Material areas transparent
+   so the starfield can actually show through */
+html[data-galaxy-theme="true"] .md-main__inner,
+html[data-galaxy-theme="true"] .md-content,
+html[data-galaxy-theme="true"] .md-sidebar {
+  background: transparent;
+}
+
+
+/* Article panel floating over stars */
+html[data-galaxy-theme="true"] .md-content__inner {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 16, 43, .90),
+      rgba(11, 7, 20, .88)
+    );
+
+  border: 1px solid rgba(174, 122, 255, .22);
+  border-radius: 16px;
+
+  box-shadow:
+    0 12px 40px rgba(0,0,0,.35),
+    0 0 30px rgba(120,65,190,.07);
+}
