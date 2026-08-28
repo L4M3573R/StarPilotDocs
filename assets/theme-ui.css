@@ -1,0 +1,26 @@
+/* Shared theme selector layout. Theme packages provide only color variables. */
+.md-sidebar--primary .site-theme-menu {
+  margin-top: 0.8rem;
+  background: var(--site-theme-menu-bg, var(--md-default-bg-color));
+  border-top: 1px solid var(--site-theme-menu-border, var(--md-default-fg-color--lightest));
+  color: var(--site-theme-menu-fg, var(--md-default-fg-color--light));
+}
+
+.site-theme-menu__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.7rem 0.6rem;
+  font-size: 0.7rem;
+}
+
+#theme-selector {
+  min-width: 6.5rem;
+  padding: 0.2rem 0.4rem;
+  background: var(--site-theme-select-bg, var(--md-default-bg-color));
+  border: 1px solid var(--site-theme-menu-border, var(--md-default-fg-color--lightest));
+  border-radius: 0.2rem;
+  color: inherit;
+  font: inherit;
+}
