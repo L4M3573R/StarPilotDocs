@@ -65,7 +65,6 @@ See the following pages before installation:
 * [Installing your Comma device](../install/comma.md)
 * [Installing StarPilot](../software/starpilot.md)
 * [OBD-C cable](./obd-c.md)
-* [GM harness](./gm-harness.md)
 * [Comma Pedal](./comma-pedal.md)
 
 ## Buying a used device
