@@ -21,6 +21,12 @@
     right: 0;
     bottom: 0;
     left: 0;
+    height: 3.2rem;
+  }
+
+  .md-sidebar--primary > .site-theme-menu > .site-theme-menu__inner {
+    box-sizing: border-box;
+    height: 100%;
   }
 }
 
