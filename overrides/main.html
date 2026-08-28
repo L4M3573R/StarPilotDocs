@@ -1,7 +1,25 @@
 {% extends "base.html" %}
 
+{% block header %}
+  {{ super() }}
+
+  <button
+    id="galaxy-theme-toggle"
+    class="galaxy-theme-button"
+    type="button"
+    title="Enable Galaxy theme"
+    aria-label="Enable Galaxy theme"
+  >
+    ✦
+  </button>
+{% endblock %}
+
 {% block content %}
   {{ super() }}
-  <script data-goatcounter="https://starpilot-docs.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+
+  <script
+    data-goatcounter="https://starpilot-docs.goatcounter.com/count"
+    async
+    src="//gc.zgo.at/count.js">
+  </script>
 {% endblock %}
