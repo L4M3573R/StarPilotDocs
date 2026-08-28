@@ -218,20 +218,12 @@ html[data-site-theme="galaxy"] .site-theme-menu {
 }
 
 html[data-site-theme="galaxy"] .site-theme-menu__inner {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  padding: 0.7rem 1rem;
   color: var(--galaxy-muted);
-  font-size: 0.7rem;
 }
 
 html[data-site-theme="galaxy"] #theme-selector {
-  padding: 0.25rem 1.8rem 0.25rem 0.55rem;
   background: #171121;
-  border: 1px solid var(--galaxy-border);
-  border-radius: 0.3rem;
+  border-color: var(--galaxy-border);
   color: var(--galaxy-text);
 }
 
