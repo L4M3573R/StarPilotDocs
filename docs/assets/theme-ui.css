@@ -1,37 +1,6 @@
 /* Shared theme selector layout. Theme packages provide only color variables. */
-@media screen and (min-width: 76.25em) {
-  .md-sidebar--primary {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .md-sidebar--primary > .md-sidebar__scrollwrap {
-    flex: 1 1 auto;
-    min-height: 0;
-  }
-}
-
-@media screen and (max-width: 76.234375em) {
-  .md-sidebar--primary > .md-sidebar__scrollwrap {
-    bottom: 3.2rem;
-  }
-
-  .md-sidebar--primary > .site-theme-menu {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 3.2rem;
-  }
-
-  .md-sidebar--primary > .site-theme-menu > .site-theme-menu__inner {
-    box-sizing: border-box;
-    height: 100%;
-  }
-}
-
 .md-sidebar--primary .site-theme-menu {
-  flex: 0 0 auto;
+  margin-top: 0.8rem;
   background: var(--site-theme-menu-bg, var(--md-default-bg-color));
   border-top: 1px solid var(--site-theme-menu-border, var(--md-default-fg-color--lightest));
   color: var(--site-theme-menu-fg, var(--md-default-fg-color--light));
