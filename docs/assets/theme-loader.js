@@ -55,6 +55,12 @@
     if (selector && selector.value !== theme) selector.value = theme;
   }
 
+  function placeThemeSelector() {
+    const menu = document.querySelector(".site-theme-menu");
+    const navigation = document.querySelector(".md-sidebar--primary .md-sidebar__inner");
+    if (menu && navigation && menu.parentElement !== navigation) navigation.appendChild(menu);
+  }
+
   function loadStylesheet(theme, id) {
     return new Promise((resolve, reject) => {
       const existing = document.getElementById(id);
@@ -114,6 +120,7 @@
   function handlePageRender() {
     const theme = root.dataset.siteTheme || readSavedTheme();
     preserveThemeAssets();
+    placeThemeSelector();
     updateSelector(theme);
     document.dispatchEvent(new CustomEvent("site-theme:render", { detail: { theme } }));
   }

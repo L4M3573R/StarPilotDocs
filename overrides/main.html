@@ -2,6 +2,7 @@
 
 {% block extrahead %}
   {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/theme-ui.css' | url }}">
   <script src="{{ 'assets/theme-loader.js' | url }}"></script>
 {% endblock %}
 
@@ -18,8 +19,8 @@
 {% block footer %}
   {{ super() }}
 
-  <div class="site-theme-menu md-footer-meta">
-    <div class="site-theme-menu__inner md-footer-meta__inner md-grid">
+  <div class="site-theme-menu">
+    <div class="site-theme-menu__inner">
       <label for="theme-selector">Theme</label>
       <select id="theme-selector" aria-label="Select site theme">
         <option value="galaxy" selected>Galaxy</option>

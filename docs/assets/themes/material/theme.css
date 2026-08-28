@@ -8,6 +8,10 @@ html[data-site-theme="material"] {
   --md-accent-fg-color: #00c853;
   --md-accent-fg-color--transparent: rgba(0, 200, 83, 0.1);
   --md-typeset-a-color: #2e7d32;
+  --site-theme-menu-bg: #fff;
+  --site-theme-menu-border: rgba(0, 0, 0, 0.12);
+  --site-theme-menu-fg: rgba(0, 0, 0, 0.7);
+  --site-theme-select-bg: #fff;
   color-scheme: light;
 }
 
@@ -27,6 +31,10 @@ html[data-site-theme="material"] {
     --md-typeset-a-color: #69c76f;
     --md-footer-bg-color: #17191f;
     --md-footer-bg-color--dark: #101217;
+    --site-theme-menu-bg: #1e2129;
+    --site-theme-menu-border: rgba(255, 255, 255, 0.12);
+    --site-theme-menu-fg: rgba(255, 255, 255, 0.7);
+    --site-theme-select-bg: #272a33;
     color-scheme: dark;
   }
 }
