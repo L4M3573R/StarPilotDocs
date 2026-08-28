@@ -22,6 +22,7 @@ html[data-site-theme="galaxy"] {
   --md-default-fg-color: var(--galaxy-text);
   --md-default-fg-color--light: #cec5d9;
   --md-default-fg-color--lighter: #a097ac;
+  --md-typeset-a-color: var(--galaxy-purple-bright);
   --md-code-bg-color: rgba(8, 9, 17, 0.72);
   --md-code-fg-color: #eee8f7;
   color-scheme: dark;

@@ -33,6 +33,16 @@
     return new URL(`${theme}/${filename}`, assetBase).href;
   }
 
+  function preserveAsset(asset) {
+    if (document.body && asset.parentElement !== document.body) {
+      document.body.appendChild(asset);
+    }
+  }
+
+  function preserveThemeAssets() {
+    document.querySelectorAll("[data-site-theme-asset]").forEach(preserveAsset);
+  }
+
   function removeThemeAssets() {
     document.dispatchEvent(new CustomEvent("site-theme:unload"));
     document.querySelectorAll("[data-site-theme-asset]").forEach((asset) => asset.remove());
@@ -56,7 +66,10 @@
       link.rel = "stylesheet";
       link.href = themeAsset(theme, "theme.css");
       link.dataset.siteThemeAsset = theme;
-      link.addEventListener("load", resolve, { once: true });
+      link.addEventListener("load", () => {
+        preserveAsset(link);
+        resolve();
+      }, { once: true });
       link.addEventListener("error", reject, { once: true });
       document.head.appendChild(link);
     });
@@ -69,7 +82,7 @@
     script.id = id;
     script.src = themeAsset(theme, "theme.js");
     script.dataset.siteThemeAsset = theme;
-    document.head.appendChild(script);
+    (document.body || document.head).appendChild(script);
   }
 
   async function activateTheme(requestedTheme, persist = true) {
@@ -80,8 +93,6 @@
     root.dataset.siteTheme = theme;
     updateSelector(theme);
     if (persist) saveTheme(theme);
-
-    if (theme === "material") return;
 
     try {
       await loadStylesheet(theme, `site-theme-${theme}-css`);
@@ -100,6 +111,7 @@
 
   function handlePageRender() {
     const theme = root.dataset.siteTheme || readSavedTheme();
+    preserveThemeAssets();
     updateSelector(theme);
     document.dispatchEvent(new CustomEvent("site-theme:render", { detail: { theme } }));
   }

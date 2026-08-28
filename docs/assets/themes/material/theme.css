@@ -1,0 +1,6 @@
+/* Material runtime theme.
+ *
+ * MkDocs Material supplies the structural component styles. Keeping this file
+ * scoped and intentionally small gives Material the same runtime lifecycle as
+ * every other selectable site theme without changing its native appearance.
+ */
