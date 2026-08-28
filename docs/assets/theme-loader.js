@@ -11,6 +11,7 @@
   const loaderUrl = new URL(document.currentScript.src);
   const assetBase = new URL("themes/", loaderUrl);
   let activationId = 0;
+  let instantNavigationSubscription;
 
   function readSavedTheme() {
     try {
@@ -34,8 +35,9 @@
   }
 
   function preserveAsset(asset) {
-    if (document.body && asset.parentElement !== document.body) {
-      document.body.appendChild(asset);
+    const assetHost = document.getElementById("site-theme-assets") || document.body;
+    if (assetHost && asset.parentElement !== assetHost) {
+      assetHost.appendChild(asset);
     }
   }
 
@@ -82,7 +84,7 @@
     script.id = id;
     script.src = themeAsset(theme, "theme.js");
     script.dataset.siteThemeAsset = theme;
-    (document.body || document.head).appendChild(script);
+    (document.getElementById("site-theme-assets") || document.body || document.head).appendChild(script);
   }
 
   async function activateTheme(requestedTheme, persist = true) {
@@ -116,8 +118,17 @@
     document.dispatchEvent(new CustomEvent("site-theme:render", { detail: { theme } }));
   }
 
-  if (typeof document$ !== "undefined") document$.subscribe(handlePageRender);
-  document.addEventListener("DOMContentLoaded", handlePageRender, { once: true });
+  function initializePageLifecycle() {
+    preserveThemeAssets();
+
+    if (!instantNavigationSubscription && typeof document$ !== "undefined") {
+      instantNavigationSubscription = document$.subscribe(handlePageRender);
+    } else {
+      handlePageRender();
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", initializePageLifecycle, { once: true });
 
   activateTheme(readSavedTheme(), false);
 })();
