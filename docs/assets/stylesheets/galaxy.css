@@ -2,7 +2,10 @@
  * StarPilot Galaxy documentation theme
  */
 
-/* ---------- Galaxy base ---------- */
+
+/* =========================================================
+   GALAXY BASE
+   ========================================================= */
 
 html[data-galaxy-theme="true"] {
   --galaxy-bg: #090712;
@@ -19,10 +22,22 @@ html[data-galaxy-theme="true"] {
   --galaxy-muted: #b9afca;
 
   --galaxy-border: rgba(169, 112, 255, 0.22);
+
+  /* Override Material theme colors */
+  --md-primary-fg-color: #4c237a;
+  --md-primary-fg-color--light: #7343a8;
+  --md-primary-fg-color--dark: #321554;
+
+  --md-accent-fg-color: #b98cff;
+  --md-accent-fg-color--transparent: rgba(185, 140, 255, 0.12);
+
+  --md-default-bg-color: transparent;
 }
 
 
-/* ---------- Main page ---------- */
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
 
 html[data-galaxy-theme="true"] body {
   background:
@@ -37,48 +52,516 @@ html[data-galaxy-theme="true"] body {
 }
 
 
-/* ---------- STAR FIELD ---------- */
+html[data-galaxy-theme="true"] .md-container {
+  background: #08060f;
+}
+
+
+/* =========================================================
+   STAR FIELD
+   ========================================================= */
 
 html[data-galaxy-theme="true"] .md-main {
   position: relative;
 
-  background-color: #090712;
+  background-color: #08060f;
 
   background-image:
 
-    /* Tiny stars */
     radial-gradient(
-      circle,
-      rgba(255,255,255,.65) 1px,
-      transparent 1.2px
+      circle at 15px 25px,
+      rgba(255, 255, 255, 0.92) 1px,
+      transparent 1.5px
     ),
 
-    /* Dim stars */
     radial-gradient(
-      circle,
-      rgba(208,183,255,.35) 1px,
-      transparent 1.3px
+      circle at 55px 75px,
+      rgba(205, 180, 255, 0.62) 1px,
+      transparent 1.5px
     ),
 
-    /* Medium stars */
     radial-gradient(
-      circle,
-      rgba(255,255,255,.38) 1.5px,
-      transparent 1.8px
+      circle at 90px 45px,
+      rgba(255, 255, 255, 0.4) 1.4px,
+      transparent 2px
     ),
 
-    /* Very faint purple atmospheric glow */
+    radial-gradient(
+      circle at 130px 120px,
+      rgba(190, 150, 255, 0.32) 1px,
+      transparent 1.6px
+    ),
+
     radial-gradient(
       ellipse at 60% 20%,
-      rgba(117,57,180,.11),
+      rgba(117, 57, 180, 0.10),
       transparent 45%
     );
 
   background-size:
-    115px 115px,
-    175px 175px,
-    285px 285px,
+    120px 120px,
+    180px 180px,
+    260px 260px,
+    320px 320px,
     100% 100%;
+
+  background-position:
+    0 0,
+    40px 70px,
+    100px 25px,
+    150px 90px,
+    center;
+
+  background-attachment: fixed;
+}
+
+
+/* Let stars show through */
+
+html[data-galaxy-theme="true"] .md-main__inner,
+html[data-galaxy-theme="true"] .md-content,
+html[data-galaxy-theme="true"] .md-sidebar {
+  background: transparent;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-header {
+  background:
+    linear-gradient(
+      135deg,
+      #211338,
+      #3d1f68
+    );
+
+  border-bottom:
+    1px solid rgba(185, 140, 255, 0.20);
+
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(120, 60, 190, 0.08);
+}
+
+
+html[data-galaxy-theme="true"] .md-header__title {
+  color: #ffffff;
+}
+
+
+html[data-galaxy-theme="true"] .md-header__button {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-tabs {
+  background:
+    linear-gradient(
+      135deg,
+      #211338,
+      #3d1f68
+    );
+}
+
+
+/* =========================================================
+   NAVIGATION / SIDEBAR
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-sidebar--primary {
+  background:
+    linear-gradient(
+      180deg,
+      #120b20 0%,
+      #0a0712 100%
+    );
+}
+
+
+html[data-galaxy-theme="true"] .md-sidebar__scrollwrap {
+  background:
+    linear-gradient(
+      180deg,
+      #110a1d,
+      #09060f
+    );
+}
+
+
+html[data-galaxy-theme="true"] .md-nav {
+  background: transparent;
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__title {
+  background:
+    linear-gradient(
+      135deg,
+      #261242,
+      #3a1d62
+    ) !important;
+
+  color: #ffffff !important;
+
+  border-bottom:
+    1px solid rgba(180, 130, 255, 0.2);
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__item {
+  border-color:
+    rgba(180, 130, 255, 0.10);
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__link {
+  color: #cfc5dc;
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__link:hover {
+  color: #d9baff;
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__link--active {
+  color: #b98cff !important;
+}
+
+
+html[data-galaxy-theme="true"] .md-nav__icon {
+  color: #b98cff;
+}
+
+
+/* Mobile drawer source/repo block */
+
+html[data-galaxy-theme="true"] .md-nav__source {
+  background:
+    linear-gradient(
+      135deg,
+      #1c1030,
+      #311750
+    ) !important;
+
+  color: #ffffff;
+}
+
+
+/* Source block */
+
+html[data-galaxy-theme="true"] .md-source {
+  color: #ffffff;
+}
+
+
+html[data-galaxy-theme="true"] .md-source__repository {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN ARTICLE PANEL
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-content__inner {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 16, 43, 0.90),
+      rgba(11, 7, 20, 0.88)
+    );
+
+  border:
+    1px solid rgba(174, 122, 255, 0.22);
+
+  border-radius: 16px;
+
+  padding:
+    1.5rem 2rem 2rem;
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(120, 65, 190, 0.07);
+
+  backdrop-filter: blur(5px);
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-typeset {
+  color: var(--galaxy-text);
+}
+
+
+html[data-galaxy-theme="true"] .md-typeset h1,
+html[data-galaxy-theme="true"] .md-typeset h2,
+html[data-galaxy-theme="true"] .md-typeset h3,
+html[data-galaxy-theme="true"] .md-typeset h4,
+html[data-galaxy-theme="true"] .md-typeset h5,
+html[data-galaxy-theme="true"] .md-typeset h6 {
+  color: #f8f5ff;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-typeset a {
+  color: var(--galaxy-purple-bright);
+}
+
+
+html[data-galaxy-theme="true"] .md-typeset a:hover {
+  color: #ddc7ff;
+}
+
+
+/* =========================================================
+   CODE
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .highlight,
+html[data-galaxy-theme="true"] .md-typeset code {
+  background-color:
+    rgba(13, 9, 23, 0.90);
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-search__form {
+  background-color:
+    rgba(255, 255, 255, 0.06);
+
+  border:
+    1px solid rgba(169, 112, 255, 0.15);
+}
+
+
+html[data-galaxy-theme="true"] .md-search__input {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   ADMONITIONS / DETAILS
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-typeset .admonition,
+html[data-galaxy-theme="true"] .md-typeset details {
+  background:
+    rgba(17, 12, 29, 0.80);
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-typeset table:not([class]) {
+  background:
+    rgba(17, 12, 29, 0.78);
+}
+
+
+html[data-galaxy-theme="true"] .md-typeset table:not([class]) th {
+  background:
+    rgba(77, 39, 126, 0.55);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+html[data-galaxy-theme="true"] .md-footer {
+  background:
+    #0c0815;
+}
+
+
+html[data-galaxy-theme="true"] .md-footer-meta {
+  background:
+    #08060f;
+}
+
+
+/* =========================================================
+   THEME MENU
+   ========================================================= */
+
+.galaxy-theme-menu {
+  max-width: 61rem;
+
+  margin:
+    0 auto;
+
+  padding:
+    1.2rem 1rem 1.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.galaxy-theme-menu__label {
+  margin-right: auto;
+
+  font-weight: 600;
+
+  opacity: 0.75;
+}
+
+
+.galaxy-theme-option {
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 8px;
+
+  padding:
+    0.5rem 0.85rem;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  color: inherit;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.galaxy-theme-option:hover {
+  border-color:
+    rgba(185, 140, 255, 0.38);
+
+  background:
+    rgba(128, 70, 190, 0.14);
+}
+
+
+.galaxy-theme-option.active {
+  border-color:
+    rgba(185, 140, 255, 0.55);
+
+  background:
+    rgba(128, 70, 190, 0.22);
+
+  color: #d7baff;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+html[data-galaxy-theme="true"] {
+  scrollbar-color:
+    var(--galaxy-purple-dark)
+    #0c0914;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 76.234375em) {
+
+  html[data-galaxy-theme="true"] .md-nav--primary {
+    background:
+      linear-gradient(
+        180deg,
+        #110a1d,
+        #09060f
+      );
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__title[for="__drawer"] {
+    background:
+      linear-gradient(
+        135deg,
+        #261242,
+        #3a1d62
+      ) !important;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__title {
+    color: #ffffff;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__link {
+    color: #cec4dc;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-nav--primary
+  .md-nav__link--active {
+    color: #b98cff !important;
+  }
+
+
+  html[data-galaxy-theme="true"]
+  .md-content__inner {
+    margin:
+      1rem 0.6rem;
+
+    padding:
+      1.25rem 1.25rem 2rem;
+
+    border-radius: 16px;
+  }
+
+
+  .galaxy-theme-menu {
+    padding:
+      1rem;
+
+    flex-wrap: wrap;
+  }
+
+
+  .galaxy-theme-menu__label {
+    width: 100%;
+
+    margin-bottom:
+      0.25rem;
+  }
+}    100% 100%;
 
   background-position:
     8px 17px,
