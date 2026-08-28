@@ -1,19 +1,5 @@
 {% extends "base.html" %}
 
-{% block header %}
-  {{ super() }}
-
-  <button
-    id="galaxy-theme-toggle"
-    class="galaxy-theme-button"
-    type="button"
-    title="Enable Galaxy theme"
-    aria-label="Enable Galaxy theme"
-  >
-    ✦
-  </button>
-{% endblock %}
-
 {% block content %}
   {{ super() }}
 
@@ -22,4 +8,30 @@
     async
     src="//gc.zgo.at/count.js">
   </script>
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+
+  <div class="galaxy-theme-menu">
+    <div class="galaxy-theme-menu__label">
+      Theme
+    </div>
+
+    <button
+      id="theme-default"
+      class="galaxy-theme-option"
+      type="button"
+    >
+      Default
+    </button>
+
+    <button
+      id="theme-galaxy"
+      class="galaxy-theme-option"
+      type="button"
+    >
+      Galaxy
+    </button>
+  </div>
 {% endblock %}
