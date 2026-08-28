@@ -1,40 +1,83 @@
-const galaxyStorageKey = "starpilot-galaxy-theme";
+const galaxyStorageKey = "starpilot-theme";
 
-function setGalaxyTheme(enabled) {
-  if (enabled) {
+function applyTheme(theme) {
+  if (theme === "galaxy") {
     document.documentElement.setAttribute(
       "data-galaxy-theme",
-      "true"
-    );
-
-    localStorage.setItem(
-      galaxyStorageKey,
       "true"
     );
   } else {
     document.documentElement.removeAttribute(
       "data-galaxy-theme"
     );
-
-    localStorage.removeItem(
-      galaxyStorageKey
-    );
   }
 
-  updateThemeButtons();
+  localStorage.setItem(
+    galaxyStorageKey,
+    theme
+  );
+
+  updateThemeSelector();
 }
 
-function updateThemeButtons() {
-  const galaxy =
+
+function updateThemeSelector() {
+  const selector =
+    document.getElementById("theme-selector");
+
+  if (!selector) return;
+
+  const galaxyEnabled =
     document.documentElement.getAttribute(
       "data-galaxy-theme"
     ) === "true";
 
-  const defaultButton =
-    document.querySelector("#theme-default");
+  selector.value =
+    galaxyEnabled
+      ? "galaxy"
+      : "default";
+}
 
-  const galaxyButton =
-    document.querySelector("#theme-galaxy");
+
+/*
+ * Load saved theme immediately.
+ */
+const savedTheme =
+  localStorage.getItem(galaxyStorageKey);
+
+if (savedTheme === "galaxy") {
+  document.documentElement.setAttribute(
+    "data-galaxy-theme",
+    "true"
+  );
+}
+
+
+/*
+ * Event delegation means this keeps working even when
+ * MkDocs Material replaces parts of the page.
+ */
+document.addEventListener("change", (event) => {
+  if (event.target.id === "theme-selector") {
+    applyTheme(event.target.value);
+  }
+});
+
+
+document.addEventListener(
+  "DOMContentLoaded",
+  updateThemeSelector
+);
+
+
+/*
+ * MkDocs Material instant navigation support.
+ */
+if (typeof document$ !== "undefined") {
+  document$.subscribe(() => {
+    updateThemeSelector();
+  });
+}    document.querySelector("#theme-galaxy");
 
   if (defaultButton) {
     defaultButton.classList.toggle(
