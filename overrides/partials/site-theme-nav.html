@@ -5,16 +5,7 @@
   <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" {{ navigation_hidden }}>
     <div class="md-sidebar__scrollwrap">
       <div class="md-sidebar__inner">
-        {% include "partials/nav.html" %}
-        <div class="site-theme-menu">
-          <div class="site-theme-menu__inner">
-            <label for="theme-selector">Theme</label>
-            <select id="theme-selector" aria-label="Select site theme">
-              <option value="galaxy" selected>Galaxy</option>
-              <option value="material">Material</option>
-            </select>
-          </div>
-        </div>
+        {% include "partials/site-primary-nav.html" %}
       </div>
     </div>
   </div>
