@@ -49,3 +49,4 @@ Settings are also searchable.
 1. Error Logs and Tmux Log: To help us debug if you run into issues.
 1. Plots: Visualize what the model is trying to do or if your car isn't listening (bad tuning)
 1. Testing Ground: Test firestar's newest experimental tunes, designed to improve your comma's performance.
+1. Sentry Mode: Monitor your parked vehicle, review captures, and manage alerts. See the [Sentry Mode guide](../exclusive/sentry-mode.md).

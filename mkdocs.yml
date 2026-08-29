@@ -34,6 +34,7 @@ nav:
   - Starpilot Exclusive Features:
       - Lane Centering: exclusive/lane-centering.md
       - Speed Limit Controller: exclusive/speed-limit-controller.md
+      - Sentry Mode: exclusive/sentry-mode.md
   - Troubleshooting & FAQ:
       - Ticket System: ticketsystem.md
       - FAQ: faq.md
