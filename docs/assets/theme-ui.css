@@ -1,4 +1,10 @@
 /* Shared theme selector layout. Theme packages provide only color variables. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav--primary > .md-nav__title[for="__drawer"] {
+    position: static;
+  }
+}
+
 .md-sidebar--primary .site-theme-menu {
   margin-top: 0.8rem;
   background: var(--site-theme-menu-bg, var(--md-default-bg-color));

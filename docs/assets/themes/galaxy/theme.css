@@ -12,7 +12,7 @@ html[data-site-theme="galaxy"] {
   --galaxy-text: #f2edfa;
   --galaxy-muted: #c4bbd1;
   --galaxy-border: rgba(177, 126, 255, 0.2);
-  --site-theme-menu-bg: rgba(11, 9, 18, 0.98);
+  --site-theme-menu-bg: transparent;
   --site-theme-menu-border: var(--galaxy-border);
   --site-theme-menu-fg: var(--galaxy-muted);
   --site-theme-select-bg: #171121;
@@ -34,7 +34,7 @@ html[data-site-theme="galaxy"] {
 
 /* Base / page */
 html[data-site-theme="galaxy"] body {
-  background: linear-gradient(180deg, #070a12 0%, #0a0b15 52%, #070910 100%);
+  background: var(--galaxy-bg);
   color: var(--galaxy-text);
 }
 
