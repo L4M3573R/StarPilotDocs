@@ -16,6 +16,7 @@ html[data-site-theme="galaxy"] {
   --site-theme-menu-border: var(--galaxy-border);
   --site-theme-menu-fg: var(--galaxy-muted);
   --site-theme-select-bg: #171121;
+  --site-theme-search-bg: #0b0c16;
 
   --md-primary-fg-color: #4b2772;
   --md-primary-fg-color--light: #70439e;

@@ -30,3 +30,17 @@
   color: inherit;
   font: inherit;
 }
+
+/* The mobile search panel must cover the header title. Some themes use a
+   transparent page background, so give search its own opaque surface. */
+.md-search__inner,
+.md-search__form,
+.md-search__output {
+  background-color: var(--site-theme-search-bg, var(--md-default-bg-color));
+}
+
+@media screen and (max-width: 59.984375em) {
+  [data-md-toggle="search"]:checked ~ .md-header .md-header__title {
+    visibility: hidden;
+  }
+}
