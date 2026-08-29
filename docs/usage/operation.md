@@ -195,6 +195,8 @@ You set a destination from [the Galaxy](./galaxy.md), and StarPilot injects turn
 into the driving model — even models that don't natively support navigation. 
 It will also attempt to slow the vehicle down for upcoming turns.
 
+For a full overview — setup, Galaxy workflow, features, and credits — see the [Navigation guide](../exclusive/navigation.md).
+
 > [!IMPORTANT] Navigation requires setup first
 > A Mapbox key, the **Use Route Desires** toggle (steering), and the 
 > **Use Route Speed Control** toggle (slowing for turns) are required before navigation 

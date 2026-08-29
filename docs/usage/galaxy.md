@@ -45,7 +45,7 @@ Settings are also searchable.
 1. Model Manager: Choose your desired model.
 1. Lateral Tuning: Use the Firestar Lateral Method (FLM) to tune your vehicle's lateral behavior.
 1. Troubleshoot: Check which settings are non-default and might be causing you issues.
-1. Navigation: Use navigation hints to help with highway exits and turn desires.
+1. Navigation: Set destinations, compare routes, and manage turn-by-turn guidance. See the [Navigation guide](../exclusive/navigation.md).
 1. Error Logs and Tmux Log: To help us debug if you run into issues.
 1. Plots: Visualize what the model is trying to do or if your car isn't listening (bad tuning)
 1. Testing Ground: Test firestar's newest experimental tunes, designed to improve your comma's performance.
