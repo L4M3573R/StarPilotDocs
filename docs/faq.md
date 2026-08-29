@@ -14,9 +14,20 @@ Can't find an answer to your question? Post in
 
 Use the [StarPilot ticket system](./ticketsystem.md) to report bugs, share tuning feedback, request features, or ask for an issue to be investigated. The guide explains which button to choose and what information to include.
 
+---
+
+# What is StarPilot?
+
+StarPilot is a fork for the [Comma](https://comma.ai/) Device. It's basically the operating system of the device.
+
+---
+
 ## What is the Galaxy? Can I change settings from my phone?
 
-[Yes.](./usage/galaxy.md)
+The Galaxy is a website that allows you to change the settings from a browser aslong as your Comma is connected to the internet.
+If you'd like to learn more about the Galaxy click this [link](./usage/galaxy.md).
+
+---
 
 ## Does StarPilot support Comma 3, 3X, and 4?
 
@@ -26,15 +37,21 @@ Yes. StarPilot fully supports all three comma devices, including features that s
 
 Yes. StarPilot detects Chestnut on Comma 3, 3X, and 4 and unlocks chestnut-class driving models when the hardware is ready. Most users do not need Chestnut — see the [Chestnut page](./hardware/chestnut.md).
 
+---
+
 ## Why is my car driving terribly?
 
 It may be a bad setting. Try enabling safe mode to revert to all defaults.
 If that fixes it, reset your toggles to defaults. 
 If not, create a troubleshooting thread in the discord.
 
+---
+
 ## Will installing openpilot void my warranty?
 
 <https://comma.ai/support#will-installing-a-comma-device-void-my-warranty>
+
+---
 
 ## Is the openpilot install reversible?
 
@@ -45,6 +62,8 @@ When the comma USB-C is unplugged, your car can't tell the difference.
 
 When the openpilot hardware (camera harnesses, pedal, ASCM, SASCM, SDSU, SDGM, etc.) are removed,
 the car returns to stock.
+
+---
 
 ## Will openpilot navigate on its own?
 
@@ -63,6 +82,8 @@ and openpilot hardware, do not expect Tesla-style full autonomy.
 Openpilot remains a driver-assistance system and continues to improve; lateral control is typically strong,
 while longitudinal behavior requires more caution and attention.
 
+---
+
 ## How do I clear the "LKAS Fault: Restart the car" error?
 
 1. Turn your car off
@@ -78,6 +99,8 @@ while longitudinal behavior requires more caution and attention.
 > but openpilot steering will still work.
 > LKAS faults also only show on the comma UI, not on car dash.
 
+---
+
 ## How do I avoid LKAS faults?
 
 1. Never reboot, unplug, or power off the comma while your car is on. 
@@ -88,6 +111,8 @@ happen while driving, it is a good idea to reseat your openpilot connections:
 GM harness, OBD-C, pedal ethernet, etc. While reseating connectors, you can breathe hot air
 into the connector (like fogging up a window, not blowing out a candle) to help clear dust
 and dissipate static buildup.
+
+---
 
 ## How do I clear the "Cruise Fault: Restart the car" error?
 
@@ -100,6 +125,8 @@ This error applies only to vehicles with adaptive cruise control (ACC).
 5. Wait 5 seconds
 6. If your error is cleared, you are done. 
 If the error is still present, go back to step 1. This can take 6 or more tries.
+
+---
 
 ## How do I clear the "Controls Mismatch" error?
 
@@ -114,6 +141,8 @@ If the error persists, restart the comma device with the car off.
 > If you use remote start and the "boot comma with remote start" setting is enabled,
 > to avoid issues, you should cycle the car off and then back on
 > again after you get in. Otherwise, you might get the Controls Mismatch error.
+
+---
 
 ## How do I upload logs for troubleshooting?
 
@@ -136,12 +165,13 @@ Be as descriptive as possible.
 Also include the approximate minute(s) in the route it happened.
 StarPilot has a unique, community-focused ticketing system that helps users and developers make sure no problem goes unresolved. [Learn how it works and what to include in your report](./ticketsystem.md).
 
-
 > [!TIP]
 > Ending a route log early
 > To make it easier to find the error, you can force the log to end early using:
 > Settings > Utilities > Force offroad. This will make sure the error is near the end of
 > the log. 
+
+---
 
 ## What is redneck ACC (aka CC Long)?
 
@@ -156,6 +186,8 @@ so you will be experiencing a small fraction of what openpilot is capable of.
 It is also quite jerky.
 
 Do not expect it to stop for cars or react quickly. As always, be ready to intervene.
+
+---
 
 ## I'm stuck on the boot logo screen. How do I fix it?
 
@@ -178,6 +210,8 @@ If issues persist, reach out in [Discord](https://firestar.link/discord).
 > It is faster and safer, the branch is not always up to date with latest AGNOS 
 > and you avoid the need to swap branches back after.
 
+---
+
 ## My device is behaving oddly. What is a "saveme"?
 
 Sometimes the device can get into a bad state due to a bad setting or conflicts during updates 
@@ -185,6 +219,8 @@ Sometimes the device can get into a bad state due to a bad setting or conflicts 
 A "saveme" will reset all settings and return to near new state (without require a flash).
 
 Go to [Galaxy](./usage/galaxy.md), open "Backup and Restore" and click "SAVE ME".
+
+---
 
 ## How do I fix "Process Not Running dmonitoringmodeld"?
 
@@ -196,6 +232,8 @@ state to a pre‑change baseline so FrogPilot can be reinstalled cleanly afterwa
 2. If you are staying on StarPilot, stop here. Otherwise, proceed.
 3. Uninstall StarPilot
 4. Reinstall FrogPilot
+
+---
 
 ## How do I fix the "Propulsion Power Reduced" Error on my dash and regen not working? (for Bolts with Comma Pedal)
 
@@ -211,6 +249,8 @@ This is hot breath like fogging up a window, not blowing out a candle.
 4. Re-connect all connectors. 
 
 If the issue still persists, post in the troubleshooting thread.
+
+---
 
 ## How do I fix the "CAN bus disconnected" Error?
 

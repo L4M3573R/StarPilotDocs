@@ -1,7 +1,26 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/theme-ui.css' | url }}">
+  <script src="{{ 'assets/theme-loader.js' | url }}"></script>
+{% endblock %}
+
 {% block content %}
   {{ super() }}
-  <script data-goatcounter="https://starpilot-docs.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+
+  <script
+    data-goatcounter="https://starpilot-docs.goatcounter.com/count"
+    async
+    src="//gc.zgo.at/count.js">
+  </script>
+{% endblock %}
+
+{% block site_nav %}
+  {% include "partials/site-theme-nav.html" %}
+{% endblock %}
+
+{% block scripts %}
+  <div id="site-theme-assets" hidden></div>
+  {{ super() }}
 {% endblock %}

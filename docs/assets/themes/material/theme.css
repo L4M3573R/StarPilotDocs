@@ -1,0 +1,40 @@
+/* Material runtime theme. MkDocs supplies structure; this package owns color. */
+html[data-site-theme="material"] {
+  --md-primary-fg-color: #2e7d32;
+  --md-primary-fg-color--light: #4caf50;
+  --md-primary-fg-color--dark: #1b5e20;
+  --md-primary-bg-color: #fff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  --md-accent-fg-color: #00c853;
+  --md-accent-fg-color--transparent: rgba(0, 200, 83, 0.1);
+  --md-typeset-a-color: #2e7d32;
+  --site-theme-menu-bg: #fff;
+  --site-theme-menu-border: rgba(0, 0, 0, 0.12);
+  --site-theme-menu-fg: rgba(0, 0, 0, 0.7);
+  --site-theme-select-bg: #fff;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-site-theme="material"] {
+    --md-default-fg-color: hsla(0, 0%, 100%, 1);
+    --md-default-fg-color--light: hsla(0, 0%, 100%, 0.7);
+    --md-default-fg-color--lighter: hsla(0, 0%, 100%, 0.32);
+    --md-default-fg-color--lightest: hsla(0, 0%, 100%, 0.12);
+    --md-default-bg-color: #1e2129;
+    --md-default-bg-color--light: hsla(225, 15%, 14%, 0.7);
+    --md-default-bg-color--lighter: hsla(225, 15%, 14%, 0.32);
+    --md-default-bg-color--lightest: hsla(225, 15%, 14%, 0.12);
+    --md-code-fg-color: #e8eaed;
+    --md-code-bg-color: #272a33;
+    --md-typeset-color: var(--md-default-fg-color);
+    --md-typeset-a-color: #69c76f;
+    --md-footer-bg-color: #17191f;
+    --md-footer-bg-color--dark: #101217;
+    --site-theme-menu-bg: #1e2129;
+    --site-theme-menu-border: rgba(255, 255, 255, 0.12);
+    --site-theme-menu-fg: rgba(255, 255, 255, 0.7);
+    --site-theme-select-bg: #272a33;
+    color-scheme: dark;
+  }
+}

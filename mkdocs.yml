@@ -18,7 +18,9 @@ nav:
       - OBD-C Cable: hardware/obd-c.md
       - OBD Harness: hardware/obd-harness.md
   - Hardware Installation:
-      - Comma: install/comma.md
+      - Comma:
+          - Installing your Comma: install/comma.md
+          - Mounting your Comma: install/mounting.md
       - Pedal: install/pedal.md
       - Car Config: install/car.md
   - Software Installation:
@@ -31,6 +33,7 @@ nav:
       - Galaxy: usage/galaxy.md
   - Starpilot Exclusive Features:
       - Lane Centering: exclusive/lane-centering.md
+      - Speed Limit Controller: exclusive/speed-limit-controller.md
   - Troubleshooting & FAQ:
       - Ticket System: ticketsystem.md
       - FAQ: faq.md
@@ -38,34 +41,9 @@ nav:
 theme:
   name: material
   custom_dir: overrides
-  palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      primary: green
-      secondary: green
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
 
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: green
-      secondary: green
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: green
-      secondary: green
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
-
-  logo: assets/images/starpilot_icon--small.png
+  logo: assets/images/galaxy_frog.png
+  favicon: assets/images/galaxy_frog.png
 
   icon:
     repo: fontawesome/brands/github
