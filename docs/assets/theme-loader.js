@@ -12,6 +12,300 @@
   const assetBase = new URL("themes/", loaderUrl);
   let activationId = 0;
   let instantNavigationSubscription;
+  let preservedNavigationScroll;
+  let selectionAnimation;
+  let pageFlipAnimations = [];
+  let pendingPageFlip;
+  let pageFlipTimeout;
+  const tabNavigationBypass = new WeakSet();
+  const sidebarNavigationBypass = new WeakSet();
+  const homeNavigationBypass = new WeakSet();
+
+  function isVisibleElement(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  }
+
+  // Tab links swap the whole spread, so the navigation turns with the page.
+  // Sidebar links only change the article, so the navigation stays put.
+  function pageFlipElements(axis) {
+    const selectors = axis === "x"
+      ? [
+          ".md-sidebar--primary .md-sidebar__scrollwrap",
+          ".md-content",
+          ".md-sidebar--secondary .md-sidebar__scrollwrap",
+        ]
+      : [".md-content", ".md-sidebar--secondary .md-sidebar__scrollwrap"];
+    return selectors
+      .map((selector) => document.querySelector(selector))
+      .filter((element) => element && isVisibleElement(element));
+  }
+
+  // Columns are separate elements, so they only read as one sheet of paper
+  // when they share a hinge line and a vanishing point. The hinge sits in the
+  // middle of the spread so the page turns on its centre like a card.
+  function preparePageFlip(pages, axis) {
+    const rects = pages.map((page) => page.getBoundingClientRect());
+    const originY = window.innerHeight / 2;
+    const originX = axis === "x"
+      ? (Math.min(...rects.map((rect) => rect.left)) +
+         Math.max(...rects.map((rect) => rect.right))) / 2
+      : window.innerWidth / 2;
+
+    pages.forEach((page, index) => {
+      const rect = rects[index];
+      page.style.transformOrigin = `${originX - rect.left}px ${originY - rect.top}px`;
+
+      // An article runs far past the fold, and turning it on a horizontal
+      // hinge swings those far ends through the camera, which tears the
+      // geometry and drops frames. Only the part on screen can be seen
+      // mid-turn, so turn that slice and leave the rest unpainted.
+      if (axis === "y") {
+        const above = Math.max(0, Math.round(-rect.top));
+        const below = Math.max(0, Math.round(rect.bottom - window.innerHeight));
+        page.style.clipPath = `inset(${above}px 0 ${below}px 0)`;
+      }
+    });
+  }
+
+  function clearPageFlipStyles(pages) {
+    pages.forEach((page) => {
+      page.style.removeProperty("transform-origin");
+      page.style.removeProperty("clip-path");
+    });
+  }
+
+  // The vertical turn only spans a viewport-tall slice, so it needs a nearer
+  // camera than the full-width horizontal one to swing just as far.
+  function pageFlipTransform(axis, degrees) {
+    return axis === "x"
+      ? `perspective(1400px) rotateY(${degrees}deg)`
+      : `perspective(1100px) rotateX(${degrees}deg)`;
+  }
+
+  // A quarter turn leaves the spread edge-on, so the swap to the next page
+  // happens out of sight and the incoming half reads as the reverse face.
+  function pageFlipAngle(axis, direction) {
+    return (axis === "x" ? -90 : 90) * direction;
+  }
+
+  function cancelPageFlipAnimations() {
+    pageFlipAnimations.forEach((animation) => animation.cancel());
+    pageFlipAnimations = [];
+  }
+
+  function endPageFlip(pages) {
+    clearTimeout(pageFlipTimeout);
+    clearPageFlipStyles(pages);
+    root.classList.remove("site-page-flipping");
+  }
+
+  function startPageFlip(link, bypass, axis, direction) {
+    const pages = pageFlipElements(axis);
+    if (!pages.length) return false;
+
+    pendingPageFlip = { axis, direction };
+    cancelPageFlipAnimations();
+    root.classList.add("site-page-flipping");
+    preparePageFlip(pages, axis);
+    pageFlipAnimations = pages.map((page) => page.animate([
+        { transform: pageFlipTransform(axis, 0), filter: "brightness(1)" },
+        {
+          transform: pageFlipTransform(axis, pageFlipAngle(axis, direction)),
+          filter: "brightness(0.55)",
+        },
+      ], {
+        duration: 230,
+        easing: "cubic-bezier(0.4, 0, 0.9, 0.6)",
+        fill: "forwards",
+      }));
+
+    // The half-turned spread is invisible, so never leave it there if the
+    // navigation it is waiting on never lands.
+    clearTimeout(pageFlipTimeout);
+    pageFlipTimeout = setTimeout(() => {
+      if (!pendingPageFlip) return;
+      pendingPageFlip = undefined;
+      cancelPageFlipAnimations();
+      endPageFlip(pages);
+    }, 4000);
+
+    Promise.all(pageFlipAnimations.map((animation) => animation.finished.catch(() => undefined))).then(() => {
+      bypass.add(link);
+      link.click();
+    });
+    return true;
+  }
+
+  // Second half of the same turn: the new page starts on the far face and
+  // rotates back to square.
+  function animateIncomingPage() {
+    if (!pendingPageFlip) return;
+    const { axis, direction } = pendingPageFlip;
+    pendingPageFlip = undefined;
+    const pages = pageFlipElements(axis);
+    if (!pages.length) {
+      endPageFlip(pages);
+      return;
+    }
+
+    cancelPageFlipAnimations();
+    root.classList.add("site-page-flipping");
+    preparePageFlip(pages, axis);
+    pageFlipAnimations = pages.map((page) => page.animate([
+        {
+          transform: pageFlipTransform(axis, -pageFlipAngle(axis, direction)),
+          filter: "brightness(0.55)",
+        },
+        { transform: pageFlipTransform(axis, 0), filter: "brightness(1)" },
+      ], {
+        duration: 300,
+        easing: "cubic-bezier(0.1, 0.4, 0.6, 1)",
+      }));
+    Promise.all(pageFlipAnimations.map((animation) => animation.finished.catch(() => undefined))).then(() => {
+      endPageFlip(pages);
+    });
+  }
+
+  function visibleElement(elements) {
+    return Array.from(elements).find(isVisibleElement);
+  }
+
+  function animateNavigationSelection(link) {
+    const tabs = link.closest(".md-tabs");
+    const sidebar = link.closest(".md-sidebar--primary");
+    if (!tabs && !sidebar) return;
+
+    const scope = tabs || sidebar;
+    const activeSelector = tabs
+      ? ".md-tabs__item--active > .md-tabs__link, .md-tabs__link--active"
+      : ".md-nav__link--active";
+    const active = visibleElement(scope.querySelectorAll(activeSelector));
+    const source = active?.querySelector(".md-ellipsis") || active;
+    const target = link.querySelector(".md-ellipsis") || link;
+    if (!source || source === target) return;
+
+    const from = source.getBoundingClientRect();
+    const to = target.getBoundingClientRect();
+    if (!from.width || !to.width) return;
+
+    selectionAnimation?.cancel();
+    document.querySelector(".nav-selection-glider")?.remove();
+
+    const glider = document.createElement("span");
+    const movementClass = tabs
+      ? "nav-selection-moving--tabs"
+      : "nav-selection-moving--sidebar";
+    glider.className = `nav-selection-glider ${tabs ? "nav-selection-glider--tabs" : "nav-selection-glider--sidebar"}`;
+    Object.assign(glider.style, {
+      left: `${from.left}px`,
+      top: `${from.bottom + 2}px`,
+      width: `${from.width}px`,
+    });
+    document.body.appendChild(glider);
+    document.documentElement.classList.add(movementClass);
+
+    selectionAnimation = glider.animate([
+      { left: `${from.left}px`, top: `${from.bottom + 2}px`, width: `${from.width}px` },
+      { left: `${to.left}px`, top: `${to.bottom + 2}px`, width: `${to.width}px` },
+    ], {
+      duration: 280,
+      easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+      fill: "forwards",
+    });
+
+    selectionAnimation.addEventListener("finish", () => {
+      glider.remove();
+      document.documentElement.classList.remove(movementClass);
+      selectionAnimation = undefined;
+    }, { once: true });
+
+    selectionAnimation.addEventListener("cancel", () => {
+      glider.remove();
+      document.documentElement.classList.remove(movementClass);
+    }, { once: true });
+  }
+
+  function animatableClick(event) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
+    return !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  function tabLinks() {
+    const tabs = document.querySelector(".md-tabs");
+    return Array.from(tabs?.querySelectorAll("a.md-tabs__link") || []);
+  }
+
+  function activeTabLink() {
+    const tabs = document.querySelector(".md-tabs");
+    return tabs?.querySelector(".md-tabs__item--active > .md-tabs__link, .md-tabs__link--active");
+  }
+
+  function samePage(a, b) {
+    const path = (url) => new URL(url, location.href).pathname.replace(/index\.html$/, "");
+    return path(a) === path(b);
+  }
+
+  function animateTabPageFlip(event, link) {
+    if (!animatableClick(event)) return false;
+
+    const links = tabLinks();
+    const active = activeTabLink();
+    const fromIndex = links.indexOf(active);
+    const toIndex = links.indexOf(link);
+    const page = document.querySelector(".md-main");
+    if (!active || active === link || fromIndex < 0 || toIndex < 0 || !page) return false;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    return startPageFlip(link, tabNavigationBypass, "x", toIndex > fromIndex ? 1 : -1);
+  }
+
+  // The header logo and wordmark jump back to whichever tab owns the homepage,
+  // so give them the page turn that clicking that tab would have given.
+  function animateHomePageFlip(event, link) {
+    if (!animatableClick(event)) return false;
+
+    const links = tabLinks();
+    const fromIndex = links.indexOf(activeTabLink());
+    const toIndex = links.findIndex((tab) => samePage(tab.href, link.href));
+    if (fromIndex < 0 || toIndex < 0 || fromIndex === toIndex) return false;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    animateNavigationSelection(links[toIndex]);
+    return startPageFlip(link, homeNavigationBypass, "x", toIndex > fromIndex ? 1 : -1);
+  }
+
+  function animateSidebarPageFlip(event, link) {
+    if (!animatableClick(event)) return false;
+
+    const sidebar = link.closest(".md-sidebar--primary");
+    const active = visibleElement(sidebar?.querySelectorAll("a.md-nav__link--active") || []);
+    const source = active?.querySelector(".md-ellipsis") || active;
+    const target = link.querySelector(".md-ellipsis") || link;
+    const page = document.querySelector(".md-content");
+    if (!active || active === link || !source || !target || !page) return false;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    const direction = target.getBoundingClientRect().top > source.getBoundingClientRect().top ? 1 : -1;
+    return startPageFlip(link, sidebarNavigationBypass, "y", direction);
+  }
+
+  if (!window.__starPilotSidebarScrollGuard) {
+    const nativeScrollTo = HTMLElement.prototype.scrollTo;
+
+    HTMLElement.prototype.scrollTo = function (...args) {
+      if (this.matches?.(".md-sidebar--primary .md-sidebar__scrollwrap")) return;
+      return nativeScrollTo.apply(this, args);
+    };
+
+    window.__starPilotSidebarScrollGuard = true;
+  }
 
   function readSavedTheme() {
     try {
@@ -112,13 +406,66 @@
   });
 
   function handlePageRender() {
+    animateIncomingPage();
     const theme = root.dataset.siteTheme || readSavedTheme();
     preserveThemeAssets();
     updateSelector(theme);
     document.dispatchEvent(new CustomEvent("site-theme:render", { detail: { theme } }));
+
+    if (preservedNavigationScroll !== undefined) {
+      const scrollTop = preservedNavigationScroll;
+      preservedNavigationScroll = undefined;
+      const restore = () => {
+        const scrollwrap = document.querySelector(
+          ".md-sidebar--primary .md-sidebar__scrollwrap"
+        );
+        if (scrollwrap) scrollwrap.scrollTop = scrollTop;
+      };
+
+      restore();
+      requestAnimationFrame(restore);
+    }
   }
 
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const homeLink = target.closest(".md-header .md-logo, .md-header .starpilot-header-brand");
+    if (homeLink) {
+      if (homeNavigationBypass.has(homeLink)) {
+        homeNavigationBypass.delete(homeLink);
+      } else if (animateHomePageFlip(event, homeLink)) {
+        return;
+      }
+    }
+
+    const tabLink = target.closest(".md-tabs a.md-tabs__link");
+    if (tabLink) {
+      if (tabNavigationBypass.has(tabLink)) {
+        tabNavigationBypass.delete(tabLink);
+      } else {
+        animateNavigationSelection(tabLink);
+        if (animateTabPageFlip(event, tabLink)) return;
+      }
+    }
+
+    const link = target.closest(".md-sidebar--primary a.md-nav__link");
+    if (!link) return;
+
+    const scrollwrap = link.closest(".md-sidebar__scrollwrap");
+    if (scrollwrap) preservedNavigationScroll = scrollwrap.scrollTop;
+
+    if (sidebarNavigationBypass.has(link)) {
+      sidebarNavigationBypass.delete(link);
+    } else {
+      animateNavigationSelection(link);
+      animateSidebarPageFlip(event, link);
+    }
+  }, true);
+
   function initializePageLifecycle() {
+    root.classList.remove("site-page-flipping");
     preserveThemeAssets();
 
     if (!instantNavigationSubscription && typeof document$ !== "undefined") {

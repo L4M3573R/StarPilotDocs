@@ -92,25 +92,12 @@ while longitudinal behavior requires more caution and attention.
 4. Turn car on
 5. Done. LKAS fault should have cleared.
 
-> [!TIP] 
-> On Bolts, when the comma is plugged in: the steering wheel LKAS button does nothing 
-> and the light above it will always be off. 
-> If the button is pressed, it will display "LKAS unavailable", 
-> but openpilot steering will still work.
-> LKAS faults also only show on the comma UI, not on car dash.
-
 ---
 
 ## How do I avoid LKAS faults?
 
 1. Never reboot, unplug, or power off the comma while your car is on. 
 This **will** cause an LKAS fault.
-2. Sometimes LKAS faults just happen. GM cars are very sensitive to the exact timing of the
-steering messages. Heat can cause thermal expansion of the connectors, so if you see this
-happen while driving, it is a good idea to reseat your openpilot connections: 
-GM harness, OBD-C, pedal ethernet, etc. While reseating connectors, you can breathe hot air
-into the connector (like fogging up a window, not blowing out a candle) to help clear dust
-and dissipate static buildup.
 
 ---
 
@@ -173,22 +160,6 @@ StarPilot has a unique, community-focused ticketing system that helps users and 
 
 ---
 
-## What is redneck ACC (aka CC Long)?
-
-This feature emulates a very basic ACC system 
-by using the built-in cruise control system and then 
-spamming virtual presses of the + and - buttons to control speed. 
-
-Redneck ACC is able to handle small speed variations while following a lead on the highway. 
-However, it is unable to change speed fast enough to 
-handle slowing or stopped leads or operate below 24 mph (due to GM limitations),
-so you will be experiencing a small fraction of what openpilot is capable of.
-It is also quite jerky.
-
-Do not expect it to stop for cars or react quickly. As always, be ready to intervene.
-
----
-
 ## I'm stuck on the boot logo screen. How do I fix it?
 
 This is usually caused by a sticky param, especially when coming from another FrogPilot-based fork.
@@ -232,23 +203,6 @@ state to a pre‑change baseline so FrogPilot can be reinstalled cleanly afterwa
 2. If you are staying on StarPilot, stop here. Otherwise, proceed.
 3. Uninstall StarPilot
 4. Reinstall FrogPilot
-
----
-
-## How do I fix the "Propulsion Power Reduced" Error on my dash and regen not working? (for Bolts with Comma Pedal)
-
-Your Bolt may have had a momentary issue communicating with the throttle pedal,
-causing it to enter a limp mode. 
-To clear any potential thermal expansion shifting or static buildup issues:
-
-1. Turn off the car.
-2. Unplug all connectors for the Comma Pedal.
-3. Breathe hot "sultry" air into the connector ends.
-This includes the two connectors coming out of the Comma Pedal box and the car side (if possible). 
-This is hot breath like fogging up a window, not blowing out a candle.
-4. Re-connect all connectors. 
-
-If the issue still persists, post in the troubleshooting thread.
 
 ---
 

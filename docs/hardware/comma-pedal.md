@@ -28,7 +28,7 @@ throttle pedal, regen paddle, CC cancel button, or CC off button.
     * Flat cables can be easier to route, but quality can be more variable than round cables.
 * Optional: [DFU Key](https://shop.beartech.ca/products/dfu-key)
     * If the firmware is ever updated, you need a DFU key (or DIY if you are mechanically inclined) to
-apply new firmware. See [the pedal firmware page](../software/pedal-firmware.md) for details.
+apply new firmware. See [the Bolt pedal firmware instructions](../cars/bolt.md#pedal-firmware-flashing) for details.
 
 > [!TIP] Bundle your pedal with a harness box.
 > If you already have a Harness Cable, 

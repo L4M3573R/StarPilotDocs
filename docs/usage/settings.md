@@ -19,20 +19,6 @@ try resetting your toggles to default or using safe mode.
 > [!TIP] Want to change settings from your phone?
 > Use [the Galaxy](./galaxy.md)
 
-## StarPilot Essential Settings
-
-> [!WARNING] Do not skip these settings
-
-* If in a GM vehicle, enable "Disable automatic fingerprint detection" 
-and select your vehicle make/model.
-
-> [!NOTE] Fingerprinting Info
-> Fingerprinting is inconsistent on GM vehicles. 
-> As such, sometimes ACC bolts decide to fingerprint as Non-ACC which causes fun issues 
-> such as… not having Gas/Brake. 
-> So to be sure, it’s just always best to manually fingerprint 
-> by disabling auto fingerprint and manually selecting your make/model.
-
 ## Safe Mode
 
 > [!TIP] Use safe mode to temporarily force all tuning settings to default
@@ -68,8 +54,8 @@ Read more about CEM [in the operation guide](./operation.md#conditional-experime
 * **Curve Detected Ahead**: Turn off 
     * Use the [Curve Speed Controller](./operation.md#curve-speed-controller) instead
 * **Lead Detected Ahead**: 
-    * Slower Lead: ==Turn On== if your car has no radar (eg. Bolts)
-    * Stopped Lead: ==Turn On== if your car has no radar (eg. Bolts)
+    * Slower Lead: ==Turn On== if your car has no radar
+    * Stopped Lead: ==Turn On== if your car has no radar
 * **Navigation Data**: Turn off
 * **openpilot Wants to Stop In**: ==7 seconds== 
     * Helps with slowing to a stop at lights, in traffic, etc. ==Default is 7 seconds==. 
@@ -105,7 +91,7 @@ Optional: [A macropad accessory](https://github.com/nelsonjchen/c3-faux-touch-ke
 is available to adjust driving personality without touching the screen. 
 It costs around $25 and requires minor tinkering.
 
-![An image of a small macropad in a Bolt](../assets/images/macropad.png){ width="300" }
+![An example of a small macropad](../assets/images/macropad.png){ width="300" }
 
 #### Quality of Life
 
@@ -145,7 +131,7 @@ nudge-initiated lane changes will also be smoother and more natural.
 > We use a custom torque controller that generally works better than upstream for more vehicles.
 > For that controller to work, BOTH Smooth Curve Handling and NNFF must be off.
 > If either are on, it reverts to an older version of the torque controller.
-> This might be better for certain cars with good NNFF tunes (like the Volt),
+> This might be better for certain cars with good NNFF tunes,
 > but we recommend leaving both off for now.
 
 * **Force Turn Desires**: Leave off
@@ -154,7 +140,6 @@ nudge-initiated lane changes will also be smoother and more natural.
     * If this is on, the old torque controller will be used.
 * **NNFF**: Neural Network Feed Forward
     * Can be smoother but can also lack peak torque.
-    * Do not use with Bolts.
 
 #### Quality of Life Improvements: Optional
 

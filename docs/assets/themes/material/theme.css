@@ -12,6 +12,8 @@ html[data-site-theme="material"] {
   --site-theme-menu-border: rgba(0, 0, 0, 0.12);
   --site-theme-menu-fg: rgba(0, 0, 0, 0.7);
   --site-theme-select-bg: #fff;
+  --site-link-color: #1677c8;
+  --site-link-hover-color: #0d5f9f;
   color-scheme: light;
 }
 
@@ -35,6 +37,15 @@ html[data-site-theme="material"] {
     --site-theme-menu-border: rgba(255, 255, 255, 0.12);
     --site-theme-menu-fg: rgba(255, 255, 255, 0.7);
     --site-theme-select-bg: #272a33;
+    --site-link-color: #7dd3fc;
+    --site-link-hover-color: #bae6fd;
     color-scheme: dark;
   }
+}
+html[data-site-theme="material"] .md-typeset a {
+  color: var(--site-link-color);
+}
+
+html[data-site-theme="material"] .md-typeset a:hover {
+  color: var(--site-link-hover-color);
 }

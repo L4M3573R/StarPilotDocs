@@ -5,40 +5,43 @@ site_url: https://wiki.firestar.link
 site_description: Documentation for the install and usage of StarPilot
 
 nav:
-  - Introduction: index.md
-  - Car Hardware Guides:
-      - Car Support: cars/support.md
-      - Bolt EV: cars/bolt.md
-      - Volt & Other ASCM/SDGM Cars: cars/volt.md
-  - Openpilot Hardware Info:
-      - Comma Devices: hardware/comma.md
-      - Chestnut (External GPU): hardware/chestnut.md
-      - Comma Pedal: hardware/comma-pedal.md
-      - GM Harness: hardware/gm-harness.md
-      - OBD-C Cable: hardware/obd-c.md
-      - OBD Harness: hardware/obd-harness.md
-  - Hardware Installation:
-      - Comma:
-          - Installing your Comma: install/comma.md
-          - Mounting your Comma: install/mounting.md
-      - Pedal: install/pedal.md
-      - Car Config: install/car.md
-  - Software Installation:
-      - Install StarPilot: software/starpilot.md
-      - Pedal Firmware Flash: software/pedal-firmware.md
-  - Usage:
-      - Operation: usage/operation.md
-      - Settings: usage/settings.md
-      - Driving Model: usage/driving-model.md
-      - Galaxy: usage/galaxy.md
-  - Starpilot Exclusive Features:
+  - General:
+      - Getting Started:
+          - Welcome to StarPilot: index.md
+          - Installing StarPilot: software/starpilot.md
+          - Vehicle Compatibility: cars/support.md
+      - Usage:
+          - Operation: usage/operation.md
+          - Settings: usage/settings.md
+          - Driving Model: usage/driving-model.md
+          - Galaxy: usage/galaxy.md
+      - Troubleshooting & FAQ:
+          - Ticket System: ticketsystem.md
+          - FAQ: faq.md
+  - StarPilot Exclusive Features:
       - Navigation: exclusive/navigation.md
       - Lane Centering: exclusive/lane-centering.md
       - Speed Limit Controller: exclusive/speed-limit-controller.md
       - Sentry Mode: exclusive/sentry-mode.md
-  - Troubleshooting & FAQ:
-      - Ticket System: ticketsystem.md
-      - FAQ: faq.md
+      - Bluetooth Controls: exclusive/bluetooth-controls.md
+  - Vehicle Specific Information:
+      - GM:
+          - Bolt EV: cars/bolt.md
+          - Volt & Other ASCM/SDGM Cars: cars/volt.md
+      - Hyundai / Kia:
+          - Long Setup for Some HDA2 Vehicles: cars/hkg-hda2-longitudinal.md
+  - Comma Hardware Info:
+      - Comma Devices: hardware/comma.md
+      - Comma Installation:
+          - Installing your Comma: install/comma.md
+          - Mounting your Comma: install/mounting.md
+      - Chestnut (External GPU): hardware/chestnut.md
+      - Comma Pedal:
+          - Pedal Information: hardware/comma-pedal.md
+          - Pedal Installation: install/pedal.md
+      - GM Harness: hardware/gm-harness.md
+      - OBD-C Cable: hardware/obd-c.md
+      - OBD Harness: hardware/obd-harness.md
     
 theme:
   name: material
@@ -52,9 +55,12 @@ theme:
 
   features:
     - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
+    - navigation.expand
     - navigation.footer
-    - toc.follow
 
 markdown_extensions:
   - admonition
@@ -86,6 +92,8 @@ repo_url: https://github.com/firestar5683/StarPilot
 repo_name: firestar5683/StarPilot
 
 extra:
+  status:
+    experimental: Experimental feature
   social:
     - icon: fontawesome/brands/discord
       link: https://firestar.link/discord

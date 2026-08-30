@@ -28,29 +28,34 @@
     };
   }
 
-  function createStar(random) {
+  function createStar(random, index) {
     const star = document.createElement("span");
     const sizeRoll = random();
     const size = sizeRoll < 0.82 ? 1 : sizeRoll < 0.98 ? 2 : 3;
-    const colorRoll = random();
-    const color = colorRoll < 0.86
+    const accentColors = [
+      "235, 88, 105",
+      "235, 88, 105",
+      "88, 158, 255",
+      "88, 158, 255",
+      "255, 211, 92",
+      "255, 211, 92",
+    ];
+    const color = accentColors[index] || (random() < 0.94
       ? "210, 215, 225"
-      : colorRoll < 0.92
-        ? "115, 155, 215"
-        : colorRoll < 0.98
-          ? "150, 115, 205"
-          : "190, 170, 225";
+      : "190, 170, 225");
 
     star.className = "galaxy-star";
     star.style.left = `${random() * 100}%`;
     star.style.top = `${random() * 100}%`;
     star.style.width = `${size}px`;
     star.style.height = `${size}px`;
-    star.style.backgroundColor = `rgba(${color}, ${0.16 + random() * 0.38})`;
-
-    if (size > 1 && random() > 0.72) {
-      star.style.boxShadow = `0 0 ${size * 2}px rgba(${color}, 0.22)`;
-    }
+    star.style.backgroundColor = `rgb(${color})`;
+    star.style.setProperty("--star-glow-color", color);
+    star.style.setProperty("--star-glow-radius", `${3 + size * 2.5}px`);
+    star.style.setProperty("--star-dim-opacity", `${0.28 + random() * 0.2}`);
+    const glowDuration = 7 + random() * 8;
+    star.style.animationDuration = `${glowDuration}s`;
+    star.style.animationDelay = `${-random() * glowDuration}s`;
 
     return star;
   }
@@ -68,7 +73,7 @@
     field.setAttribute("aria-hidden", "true");
 
     for (let index = 0; index < starCount; index += 1) {
-      stars.appendChild(createStar(random));
+      stars.appendChild(createStar(random, index));
     }
 
     field.appendChild(stars);

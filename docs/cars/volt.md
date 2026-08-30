@@ -69,7 +69,7 @@ Longitudinal (gas/brake) control:
 
 1. [Flashing your Volt firmware for ACC](#flashing-volt-firmware).
 **This will give you the best openpilot experience.**
-1. [Redneck ACC](../faq.md#what-is-redneck-acc-aka-cc-long)
+1. [Redneck ACC](#what-is-redneck-acc-aka-cc-long)
 1. A potential option is the [Comma Pedal](../hardware/comma-pedal.md), but you will be limited to L mode regen.
 This is completely untested and undeveloped in the Volt. Feel free to contribute!
 
@@ -86,3 +86,29 @@ for a fee. DM on [Discord](https://firestar.link/discord) (through the member li
 > [!CAUTION] Flashing ACC 
 > Flashing ACC will remove stock CC. 
 > This can be restored by re-flashing stock firmware. 
+
+## GM Vehicle Settings
+
+Enable **Disable Automatic Fingerprint Detection** and manually select your vehicle make and
+model. Fingerprinting can be inconsistent on GM vehicles, so it is best to select the car
+manually.
+
+## What is Redneck ACC (aka CC Long)?
+
+This feature emulates a very basic ACC system by using the built-in cruise control system and
+then spamming virtual presses of the + and - buttons to control speed.
+
+Redneck ACC is able to handle small speed variations while following a lead on the highway.
+However, it is unable to change speed fast enough to handle slowing or stopped leads or operate
+below 24 mph due to GM limitations, so you will be experiencing a small fraction of what
+openpilot is capable of. It is also quite jerky.
+
+Do not expect it to stop for cars or react quickly. As always, be ready to intervene.
+
+## GM LKAS Faults
+
+GM cars are very sensitive to the exact timing of the steering messages. Heat can cause thermal
+expansion of the connectors, so if an LKAS fault happens while driving, reseat your openpilot
+connections, such as the GM harness, OBD-C, and pedal ethernet. While reseating connectors, you
+can breathe hot air into the connector like fogging up a window, not blowing out a candle. This
+can help clear dust and dissipate static buildup.

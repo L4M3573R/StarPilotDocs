@@ -1,3 +1,7 @@
+---
+status: experimental
+---
+
 # Lane Centering
 
 Lane Centering is a StarPilot feature that helps keep your vehicle centered between detected lane lines while still allowing the End-to-End (E2E) model to control the driving path.

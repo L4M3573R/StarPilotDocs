@@ -25,8 +25,7 @@ Steering, throttle, and brakes can be used at any time.
 3. To engage openpilot (ie. to make it control your speed and steering), 
 engage your CC system as normal by turning CC ON, then pressing SET/-. 
 4. To disengage openpilot, it should be the same as your CC system. 
-Press CC cancel, CC OFF, or hit the brakes. 
-GM Volts/Bolts can use the regen paddle.
+Press CC cancel, CC OFF, or hit the brakes.
 5. To adjust openpilot max speed, use the CC +/- buttons. 
 Depending on the car, your dash may not reflect the max speed, 
 so instead use the openpilot UI's max speed shown.
