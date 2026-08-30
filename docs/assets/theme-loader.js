@@ -120,19 +120,20 @@
         fill: "forwards",
       }));
 
-    // The half-turned spread is invisible, so never leave it there if the
-    // navigation it is waiting on never lands.
     clearTimeout(pageFlipTimeout);
-    pageFlipTimeout = setTimeout(() => {
-      if (!pendingPageFlip) return;
-      pendingPageFlip = undefined;
-      cancelPageFlipAnimations();
-      endPageFlip(pages);
-    }, 4000);
-
     Promise.all(pageFlipAnimations.map((animation) => animation.finished.catch(() => undefined))).then(() => {
       bypass.add(link);
       link.click();
+
+      // A half-turned spread is edge-on, so it shows nothing at all. If the
+      // navigation it is waiting on never lands — a dead server, a dropped
+      // connection — turn the page we still have back to square rather than
+      // leaving the reader looking at blank space.
+      pageFlipTimeout = setTimeout(() => {
+        if (!pendingPageFlip) return;
+        pendingPageFlip = { axis, direction: -direction };
+        animateIncomingPage();
+      }, 1500);
     });
     return true;
   }
