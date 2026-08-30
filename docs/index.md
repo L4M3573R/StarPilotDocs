@@ -4,11 +4,6 @@ StarPilot is a community-driven fork of [OpenPilot](https://github.com/commaai/o
 It runs on the Comma 3, 3X, and 4 by [comma.ai](https://comma.ai/) and is built for people
 who want more features, more control over their experience, and room to experiment.
 
-**OpenPilot** is an open-source driver assistance system. 
-Currently, OpenPilot performs the functions of Adaptive Cruise Control (ACC), 
-Automated Lane Centering (ALC), and Lane Departure Warning (LDW). 
-If you are here, you likely already know OpenPilot.
-
 StarPilot includes a wide range of driving, tuning, interface, hardware, and developer features.
 It supports all three comma devices, Chestnut eGPU, Galaxy remote management, multiple
 driving models, and improved support for a growing list of vehicles. See
