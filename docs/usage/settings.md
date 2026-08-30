@@ -72,7 +72,7 @@ it keeps experimental mode on by default and drops back to chill mode in simple 
 Read more about CCM [in the operation guide](./operation.md#conditional-chill-mode).
 
 > [!INFO] Mutually exclusive with CEM
-> CCM and [CEM](#conditional-experimental-mode-turn-on) cannot both be active. 
+> CCM and [CEM](#conditional-experimental-mode-recommended) cannot both be active. 
 > If both are enabled, CEM takes precedence.
 
 #### Curve Speed Control
@@ -83,7 +83,7 @@ Read more about CSC [in the operation guide](./operation.md#curve-speed-controll
 
 Enabling allows you to customize personalities to your preference.
 
-See [Appearance -> Driving Screen Widgets](#appearance) 
+See **Appearance -> Driving Screen Widgets** 
 to enable an on-screen button for switching personalities. 
 This is helpful for cars without a following distance button.
 
@@ -102,7 +102,7 @@ It costs around $25 and requires minor tinkering.
 If your car is regularly stopping too late when coming to a complete stop behind another vehicle, 
 increase this number to your preference. 
 This will not help in cases where openpilot did not start slowing in time. 
-See "openpilot Wants to Stop In" in the [CEM](#conditional-experimental-mode-turn-on) 
+See "openpilot Wants to Stop In" in the [CEM](#conditional-experimental-mode-recommended) 
 settings for help with this.
 
 ### Steering

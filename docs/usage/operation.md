@@ -40,7 +40,7 @@ you can always override it by manually steering.
 To enable, turn the CC system on. 
 To disable, turn CC system off.
 
-To permanently disable, [see settings](./settings.md#always-on-lateral-recommend-turning-on)
+To permanently disable, [see settings](./settings.md#always-on-lateral)
 
 ## Lane Changes
 
