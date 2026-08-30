@@ -262,15 +262,41 @@
     return startPageFlip(link, tabNavigationBypass, "x", toIndex > fromIndex ? 1 : -1);
   }
 
+  // The sidebar entry the header logo and wordmark lead back to. The lifted
+  // nav repeats the tab itself as a hidden link with the same target, so only
+  // the entry a reader can actually see is worth gliding the marker to.
+  function homeSidebarEntry(link) {
+    const sidebar = document.querySelector(".md-sidebar--primary");
+    const entries = sidebar?.querySelectorAll("a.md-nav__link[href]") || [];
+    return Array.from(entries).find(
+      (entry) => samePage(entry.href, link.href) && isVisibleElement(entry)
+    );
+  }
+
   // The header logo and wordmark jump back to whichever tab owns the homepage,
   // so give them the page turn that clicking that tab would have given.
   function animateHomePageFlip(event, link) {
     if (!animatableClick(event)) return false;
+    if (samePage(location.href, link.href)) return false;
 
     const links = tabLinks();
     const fromIndex = links.indexOf(activeTabLink());
     const toIndex = links.findIndex((tab) => samePage(tab.href, link.href));
-    if (fromIndex < 0 || toIndex < 0 || fromIndex === toIndex) return false;
+
+    // The homepage already sits in the open tab, so the spread around the
+    // article never changes. Hand the turn to its sidebar entry instead, so
+    // the wordmark behaves exactly like clicking that entry in the navigation.
+    if (fromIndex < 0 || toIndex < 0 || fromIndex === toIndex) {
+      const entry = homeSidebarEntry(link);
+      const direction = entry ? sidebarFlipDirection(entry) : 0;
+      if (!direction) return false;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      animateNavigationSelection(entry);
+      return startPageFlip(link, homeNavigationBypass, "y", direction);
+    }
 
     event.preventDefault();
     event.stopImmediatePropagation();
@@ -279,20 +305,29 @@
     return startPageFlip(link, homeNavigationBypass, "x", toIndex > fromIndex ? 1 : -1);
   }
 
+  // Navigation entries turn on the horizontal hinge, and which way they turn
+  // follows whether the destination sits above or below the entry that is
+  // open. Zero means this entry has nothing to turn away from.
+  function sidebarFlipDirection(entry) {
+    const sidebar = entry.closest(".md-sidebar--primary");
+    const active = visibleElement(sidebar?.querySelectorAll("a.md-nav__link--active") || []);
+    const source = active?.querySelector(".md-ellipsis") || active;
+    const target = entry.querySelector(".md-ellipsis") || entry;
+    if (!active || active === entry || !source || !target) return 0;
+
+    return target.getBoundingClientRect().top > source.getBoundingClientRect().top ? 1 : -1;
+  }
+
   function animateSidebarPageFlip(event, link) {
     if (!animatableClick(event)) return false;
 
-    const sidebar = link.closest(".md-sidebar--primary");
-    const active = visibleElement(sidebar?.querySelectorAll("a.md-nav__link--active") || []);
-    const source = active?.querySelector(".md-ellipsis") || active;
-    const target = link.querySelector(".md-ellipsis") || link;
+    const direction = sidebarFlipDirection(link);
     const page = document.querySelector(".md-content");
-    if (!active || active === link || !source || !target || !page) return false;
+    if (!direction || !page) return false;
 
     event.preventDefault();
     event.stopImmediatePropagation();
 
-    const direction = target.getBoundingClientRect().top > source.getBoundingClientRect().top ? 1 : -1;
     return startPageFlip(link, sidebarNavigationBypass, "y", direction);
   }
 
