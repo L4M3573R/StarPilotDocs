@@ -10,7 +10,7 @@ Automated Lane Centering (ALC), and Lane Departure Warning (LDW).
 If you are here, you likely already know OpenPilot.
 
 StarPilot includes a wide range of driving, tuning, interface, hardware, and developer features.
-It supports all three comma devices, external GPU hardware, Galaxy remote management, multiple
+It supports all three comma devices, Chestnut eGPU, Galaxy remote management, multiple
 driving models, and improved support for a growing list of vehicles. See
 [Vehicle Compatibility](./cars/support.md) for the full list.
 
