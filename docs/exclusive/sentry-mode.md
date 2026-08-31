@@ -1,3 +1,7 @@
+---
+status: experimental
+---
+
 # Sentry Mode
 
 When your car is parked, Sentry Mode watches for activity around your vehicle and automatically captures events, similar in spirit to Tesla's Sentry Mode, but built for your comma device and managed through [Galaxy](../usage/galaxy.md).

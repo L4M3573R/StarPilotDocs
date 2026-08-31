@@ -1,19 +1,20 @@
-# Introduction
+# Welcome to StarPilot
 
-StarPilot is a fork of [FrogPilot](https://github.com/FrogAi/FrogPilot), 
-which itself is a fork of [openpilot](http://github.com/commaai/openpilot). 
-StarPilot runs on the Comma 3, 3X, and 4 by [comma.ai](https://comma.ai/).
+StarPilot is a community-driven fork of [OpenPilot](https://github.com/commaai/openpilot).
+It runs on the Comma 3, 3X, and 4 by [comma.ai](https://comma.ai/) and is built for people
+who want more features, more control over their experience, and room to experiment.
 
-**openpilot** is an open-source driver assistance system. 
-Currently, openpilot performs the functions of Adaptive Cruise Control (ACC), 
-Automated Lane Centering (ALC), and Lane Departure Warning (LDW). 
-If you are here, you likely already know openpilot.
+StarPilot includes a wide range of driving, tuning, interface, hardware, and developer features.
+It supports all three comma devices, Chestnut eGPU, Galaxy remote management, multiple
+driving models, and improved support for a growing list of vehicles. See
+[Vehicle Compatibility](./cars/support.md) for the full list.
 
-**FrogPilot** is a fully open-sourced fork of openpilot with a very active 
-and collaborative community. FrogPilot adds features and car support 
-that are not present in stock openpilot.
+StarPilot began as a fork of [FrogPilot](https://github.com/FrogAi/FrogPilot), and the project
+would not exist without FrogPilot and the work behind it. StarPilot has since grown in its own
+direction with different hardware support, features, tools, and vehicle improvements.
 
-**StarPilot** is a fork of FrogPilot with a focus on better tuning for radar-less/VoACC cars, GM cars, and Hyundai/Kia/Genesis (HKG) cars, while also adding support and improved tuning for many Honda, Acura, and other vehicles. See [Car Support](./cars/support.md) for the full list.
+The project is shaped by the people using it. Feedback, testing, feature ideas, and development
+from the community all play a part in where StarPilot goes next.
 
 > [!TIP] Questions? 
 > Join us in the [Discord](https://firestar.link/discord)
@@ -21,7 +22,7 @@ that are not present in stock openpilot.
 ## New to StarPilot? Start Here.
 
 1. [Get necessary hardware for your car using our car guides](./cars/all.md). 
-If you are already running with stock openpilot or FrogPilot, 
+If you are already running with stock OpenPilot or FrogPilot, 
 you can skip this step for now as extra accessories are optional.
 1. [Install StarPilot](./software/starpilot.md).
 1. Read the [Operation Guide](./usage/operation.md).

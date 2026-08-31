@@ -2,7 +2,7 @@
 description: Cars StarPilot adds or tunes better than stock openpilot
 ---
 
-# Car Support
+# Vehicle Compatibility
 
 StarPilot adds support for cars that stock openpilot doesn't cover, and re-tunes a number
 of cars that *are* supported by stock so they drive better.

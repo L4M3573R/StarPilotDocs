@@ -1,7 +1,347 @@
 /* Shared theme selector layout. Theme packages provide only color variables. */
+@font-face {
+  font-family: "Oxanium";
+  src: url("fonts/oxanium/Oxanium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "StarPilot Bubbly";
+  src: url("fonts/como-heavy.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+}
+
+:root {
+  --md-text-font: "Oxanium";
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+.md-sidebar__scrollwrap,
+.md-search__scrollwrap {
+  scroll-behavior: smooth;
+}
+
+/* Static brand label beside the header logo. */
+.starpilot-header-brand {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #fff;
+  font-family: "StarPilot Bubbly", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__inner {
+    transform-origin: center;
+    transition:
+      width 380ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 220ms ease;
+  }
+
+  .md-search:focus-within .md-search__inner {
+    animation: search-bar-open 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes search-bar-open {
+  0% {
+    opacity: 0.76;
+    transform: scaleX(0.88);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scaleX(1.012);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Material lays the results panel out at full height and only cross-fades it,
+   so it materialises in place. Unroll it out from under the field instead.
+   The clip keeps its negative side insets throughout, otherwise clipping to
+   the border box would cut off the panel's drop shadow. */
+@media screen and (min-width: 60em) {
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__output {
+    animation: search-panel-open 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes search-panel-open {
+  from {
+    clip-path: inset(0 -2rem 100% -2rem);
+    opacity: 0;
+    transform: translateY(-0.3rem);
+  }
+
+  to {
+    clip-path: inset(0 -2rem -2rem -2rem);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Results are rebuilt on every query, so a plain CSS animation on the items
+   replays itself each time without any JavaScript bookkeeping. */
+.md-search-result__list > .md-search-result__item {
+  animation: search-result-in 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes search-result-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cascade the top of the list, then flatten out so long results stay quick. */
+.md-search-result__list > .md-search-result__item:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.md-search-result__list > .md-search-result__item:nth-child(2) {
+  animation-delay: 26ms;
+}
+
+.md-search-result__list > .md-search-result__item:nth-child(3) {
+  animation-delay: 52ms;
+}
+
+.md-search-result__list > .md-search-result__item:nth-child(4) {
+  animation-delay: 78ms;
+}
+
+.md-search-result__list > .md-search-result__item:nth-child(5) {
+  animation-delay: 104ms;
+}
+
+.md-search-result__list > .md-search-result__item:nth-child(6) {
+  animation-delay: 130ms;
+}
+
+.md-search-result__list > .md-search-result__item:nth-child(n + 7) {
+  animation-delay: 156ms;
+}
+
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  overflow-anchor: none;
+}
+
+/* Reusable navigation tag for experimental features. */
+.md-status--experimental {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-start: 0.35rem;
+  padding: 0.06rem 0.32rem;
+  border: 1px solid currentcolor;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #f04f78;
+  font-size: 0.48rem;
+  font-weight: 700;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+.md-status--experimental::after {
+  width: auto;
+  height: auto;
+  background: none;
+  content: "Experimental";
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.md-status--experimental:hover,
+.md-status--experimental:hover::after {
+  background: none;
+  color: #f04f78;
+}
+
+.md-tabs__item--active > .md-tabs__link,
+.md-tabs__link--active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.3rem;
+}
+
+/* Page turns rotate columns in 3-D; clip so they never widen the document. */
+html.site-page-flipping {
+  overflow-x: clip;
+}
+
+html.site-page-flipping .md-content,
+html.site-page-flipping .md-sidebar__scrollwrap {
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.nav-selection-glider {
+  position: fixed;
+  z-index: 20;
+  display: block;
+  height: 0.1rem;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 0 0.35rem rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+html.nav-selection-moving--tabs .md-tabs__item--active > .md-tabs__link,
+html.nav-selection-moving--tabs .md-tabs__link--active {
+  text-decoration-color: transparent;
+}
+
+html.nav-selection-moving--sidebar
+  .md-sidebar--primary
+  .md-nav__link--active
+  > .md-ellipsis {
+  border-bottom-color: transparent !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  .md-sidebar__scrollwrap,
+  .md-search__scrollwrap {
+    scroll-behavior: auto;
+  }
+
+  .md-search:focus-within .md-search__inner {
+    animation: none;
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__output {
+    animation: none;
+  }
+
+  .md-search-result__list > .md-search-result__item {
+    animation: none;
+  }
+
+  .nav-selection-glider {
+    display: none;
+  }
+}
+
+/* Visually nest page links beneath their larger category headings. */
+.md-sidebar--primary
+  .md-nav__item:not(.md-nav__item--section):not(.md-nav__item--nested)
+  > .md-nav__link {
+  padding-inline-start: 0.8rem;
+  font-size: 0.68rem;
+}
+
+/* Direct children of a content tab have no category to indent beneath. */
+.md-sidebar--primary
+  .md-nav[data-md-level="1"]
+  > .md-nav__list
+  > .md-nav__item:not(.md-nav__item--nested)
+  > .md-nav__link {
+  padding-inline-start: 0;
+}
+
+/* Emphasize only the current page, not its parent navigation categories. */
+html[data-site-theme="galaxy"]
+  .md-sidebar--primary
+  .md-nav__item--active:not(.md-nav__item--section):not(.md-nav__item--nested)
+  > .md-nav__link--active
+  > .md-ellipsis {
+  display: inline;
+  padding-bottom: 0.08rem;
+  border-bottom: 0.1rem solid #fff;
+  color: #fff !important;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  text-decoration: none;
+}
+
+/* Match the current table-of-contents entry to the selected page styling. */
+html[data-site-theme="galaxy"]
+  .md-sidebar--secondary
+  .md-nav__link--active
+  > .md-ellipsis {
+  display: inline;
+  padding-bottom: 0.08rem;
+  border-bottom: 0.1rem solid #fff;
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 76.25em) {
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    position: fixed;
+    top: 8.6rem;
+    transform: translateY(1.2rem);
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .md-sidebar--primary {
+    left: max(0px, calc(50vw - 30.5rem));
+  }
+
+  .md-sidebar--secondary {
+    right: max(0px, calc(50vw - 30.5rem));
+  }
+
+  .md-sidebar--primary:not([hidden]) ~ .md-content {
+    margin-left: 12.1rem;
+  }
+
+  .md-sidebar--secondary:not([hidden]) ~ .md-content {
+    margin-right: 12.1rem;
+  }
+
+  .md-sidebar--secondary {
+    padding-top: 0.4rem;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap,
+  .md-sidebar--secondary .md-sidebar__scrollwrap {
+    max-height: calc(100vh - 10.2rem);
+  }
+
+  .md-content {
+    min-height: 48rem;
+  }
+
   .md-sidebar--primary .md-nav--primary > .md-nav__title[for="__drawer"] {
     position: static;
+  }
+
+  /* The active content tab is already shown in the tab bar above the page. */
+  .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+    display: none;
+  }
+
+  /* Keep the custom theme selector visible when top-level navigation uses tabs. */
+  .md-nav--lifted > .md-nav__list > .site-theme-menu {
+    display: list-item;
   }
 }
 
